@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GroceryStore</string>
+    <string name="title_activity_start_screen">StartScreen</string>
+    <string name="btn_restock">Restock</string>
+    <string name="btn_make_new_delivery">Make New Delivery</string>
+    <string name="btn_reassign_employees">Reassign Employees</string>
+    <string name="btn_call_in_employee">Call in Employee</string>
+    <string name="btn_release_employee">Release Employee</string>
+
+</resources>
