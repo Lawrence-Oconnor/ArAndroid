@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void refreshCharts(){
-
+int y;
     }
 
     private void initializeCharts() {
