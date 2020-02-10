@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Dialog popupContainer;
 
 
-    private int day;
+    private int dayCount;
     private Timer clock = new Timer();
 
     @Override

@@ -5,7 +5,7 @@ public class Employee {
     private int employeeNumber;
     private boolean idle;
     private double stockTime;
-    private string department;
+    private int department;
 
     public Employee(){
     //args
