@@ -1,61 +1,99 @@
 package com.example.grocerystore.Models;
 
 public class FoodItem {
-    private String name;
-    private double price;
-    private int stockTime;
-    private int amount;
-    private int maximumStock;
 
-    public FoodItem (){
-        //args
+
+    private String department;
+    private String departmentCode;
+    private String itemDescription;
+    private String itemCode;
+    private String SKU;
+    int totalInitialQuantity;
+    private float unitPriceCustomer;
+    private float unitPriceFarmer;
+    private float totalPrice;
+
+    public FoodItem(String department, String departmentCode, String itemDescription, String itemCode, String SKU, int totalInitialQuantity, float unitPriceCustomer, float unitPriceFarmer, float totalPrice) {
+        this.department = department;
+        this.departmentCode = departmentCode;
+        this.itemDescription = itemDescription;
+        this.itemCode = itemCode;
+        this.SKU = SKU;
+        this.totalInitialQuantity = totalInitialQuantity;
+        this.unitPriceCustomer = unitPriceCustomer;
+        this.unitPriceFarmer = unitPriceFarmer;
+        this.totalPrice = totalPrice;
     }
 
-    public FoodItem(String name, double price, int stockTime, int amoun, int maximumStock) {
-        this.name = name;
-        this.price = price;
-        this.stockTime = stockTime;
-        this.amount = amount;
-        this.maximumStock = maximumStock;
+    public String getDepartment() {
+        return department;
     }
 
-    public String getName() {
-        return name;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDepartmentCode() {
+        return departmentCode;
     }
 
-    public double getPrice() {
-        return price;
+    public void setDepartmentCode(String departmentCode) {
+        this.departmentCode = departmentCode;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public String getItemDescription() {
+        return itemDescription;
     }
 
-    public int getStockTime() {
-        return stockTime;
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
     }
 
-    public void setStockTime(int stockTime) {
-        this.stockTime = stockTime;
+    public String getItemCode() {
+        return itemCode;
     }
 
-    public int getAmount() {
-        return amount;
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public String getSKU() {
+        return SKU;
     }
 
-    public int getMaximumStock() {
-        return maximumStock;
+    public void setSKU(String SKU) {
+        this.SKU = SKU;
     }
 
-    public void setMaximumStock(int maximumStock) {
-        this.maximumStock = maximumStock;
+    public int getTotalInitialQuantity() {
+        return totalInitialQuantity;
+    }
+
+    public void setTotalInitialQuantity(int totalInitialQuantity) {
+        this.totalInitialQuantity = totalInitialQuantity;
+    }
+
+    public float getUnitPriceCustomer() {
+        return unitPriceCustomer;
+    }
+
+    public void setUnitPriceCustomer(float unitPriceCustomer) {
+        this.unitPriceCustomer = unitPriceCustomer;
+    }
+
+    public float getUnitPriceFarmer() {
+        return unitPriceFarmer;
+    }
+
+    public void setUnitPriceFarmer(float unitPriceFarmer) {
+        this.unitPriceFarmer = unitPriceFarmer;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

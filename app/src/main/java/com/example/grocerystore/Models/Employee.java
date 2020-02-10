@@ -2,18 +2,18 @@ package com.example.grocerystore.Models;
 
 public class Employee {
     private String name;
-    private String employeeNumber;
+    private int employeeNumber;
     private boolean idle;
     private double stockTime;
-    private int department;
+    private string department;
 
     public Employee(){
     //args
     }
-    public Employee(String name, String employerNumber, Boolean idle, double stockTime, int department ){
+    public Employee(String name, int employeeNumber, Boolean idle, double stockTime, int department ){
 
         this.name = name;
-        this.employeeNumber = employerNumber;
+        this.employeeNumber = employeeNumber;
         this.idle = idle;
         this.stockTime = stockTime;
         this.department = department;
@@ -49,5 +49,21 @@ public class Employee {
 
     public void setTemp(int temp) {
         this.department = temp;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(int employeeNumber) {
+        this.employeeNumber = employeeNumber;
+    }
+
+    public int getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(int department) {
+        this.department = department;
     }
 }

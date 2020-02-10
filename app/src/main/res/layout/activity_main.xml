@@ -85,15 +85,15 @@
 
     <TextView
         android:id="@+id/tvDay"
-        android:layout_width="71dp"
-        android:layout_height="20dp"
+        android:layout_width="56dp"
+        android:layout_height="23dp"
         android:text="day"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -105,6 +105,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.254"
         app:layout_constraintWidth_percent="1.0">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -120,9 +126,21 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.5">
 
+                <TextView
+                    android:id="@+id/tvStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/tv_stock"
+                    android:textColor="@color/sectionTitles"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
@@ -136,15 +154,6 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/textView2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TextView"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
 
                             <com.github.mikephil.charting.charts.PieChart
                                 android:id="@+id/chart1Pie"
@@ -172,10 +181,32 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.5">
 
+                <TextView
+                    android:id="@+id/tvEmployees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/tv_employees"
+                    android:textColor="@color/sectionTitles"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp">
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="286dp"
+                        android:layout_height="201dp"
+                        app:cardBackgroundColor="#E3C3EB"
+                        app:layout_constraintHeight_percent="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.5">
+
+                    </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -183,17 +214,67 @@
                 android:id="@+id/cvC"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#1E39E9"
+                app:cardBackgroundColor="#F5DE9C"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.5">
 
+                <TextView
+                    android:id="@+id/tvSales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/tv_sales"
+                    android:textColor="@color/sectionTitles"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp">
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:cardBackgroundColor="#E3C3EB"
+                        app:layout_constraintHeight_percent="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.5">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.github.mikephil.charting.charts.LineChart
+                                android:id="@+id/lineChartTest"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:foregroundGravity="right"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHeight_percent=".5"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintWidth_percent=".5">
+
+                            </com.github.mikephil.charting.charts.LineChart>
+
+                            <com.github.mikephil.charting.charts.BarChart
+                                android:id="@+id/chartBarTest"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintHeight_percent=".5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintWidth_percent=".5" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -206,10 +287,30 @@
                 app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintWidth_percent="0.5">
 
+                <TextView
+                    android:id="@+id/tvRegisters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/tv_Register"
+                    android:textColor="@color/sectionTitles"
+                    android:textColorLink="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp">
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintHeight_percent=".5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent=".5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
