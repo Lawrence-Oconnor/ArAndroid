@@ -6,16 +6,26 @@ import java.util.ArrayList;
 //Stock and money to be manipulated in the main Activity
 public class Store {
     private int storeDay;
+    private int cash;
+    private int dayHours;
+    private int fullTimePay;
+    private int partTimePay;
+
+    private ArrayList <String> departments;
     private ArrayList<Employee> employees;
     private ArrayList<FoodItem> foodItems;
-    private int balance;
 
+    public Store(int storeDay, int cash, int dayHours, int fullTimePay, int partTimePay,
+                 ArrayList<String> departments, ArrayList<Employee> employees, ArrayList<FoodItem> foodItems) {
 
-    public Store(int storeDay, ArrayList<Employee> employees, ArrayList<FoodItem> foodItems, int balance) {
         this.storeDay = storeDay;
+        this.cash = cash;
+        this.dayHours = dayHours;
+        this.fullTimePay = fullTimePay;
+        this.partTimePay = partTimePay;
+        this.departments = departments;
         this.employees = employees;
         this.foodItems = foodItems;
-        this.balance = balance;
     }
 
     public int getStoreDay() {
@@ -24,6 +34,46 @@ public class Store {
 
     public void setStoreDay(int storeDay) {
         this.storeDay = storeDay;
+    }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
+    }
+
+    public int getDayHours() {
+        return dayHours;
+    }
+
+    public void setDayHours(int dayHours) {
+        this.dayHours = dayHours;
+    }
+
+    public int getFullTimePay() {
+        return fullTimePay;
+    }
+
+    public void setFullTimePay(int fullTimePay) {
+        this.fullTimePay = fullTimePay;
+    }
+
+    public int getPartTimePay() {
+        return partTimePay;
+    }
+
+    public void setPartTimePay(int partTimePay) {
+        this.partTimePay = partTimePay;
+    }
+
+    public ArrayList<String> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(ArrayList<String> departments) {
+        this.departments = departments;
     }
 
     public ArrayList<Employee> getEmployees() {
@@ -40,13 +90,5 @@ public class Store {
 
     public void setFoodItems(ArrayList<FoodItem> foodItems) {
         this.foodItems = foodItems;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
     }
 }

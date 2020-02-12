@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Historical"></activity>
         <activity
             android:name=".Dialogs.popupMenu"
             android:label="Test Popup"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar">
-        </activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
         <activity android:name=".Activities.EmployeeTesting" />
         <activity
             android:name=".Activities.StartScreen"
