@@ -6,18 +6,20 @@ public class Employee {
     private boolean idle;
     private double stockTime;
     private int department;
+    private boolean offSite;
+    private boolean fulltime;
 
-    public Employee(){
-    //args
-    }
-    public Employee(String name, int employeeNumber, Boolean idle, double stockTime, int department ){
 
+    public Employee(String name, int employeeNumber, boolean idle, double stockTime, int department, boolean offSite, boolean fulltime) {
         this.name = name;
         this.employeeNumber = employeeNumber;
         this.idle = idle;
         this.stockTime = stockTime;
         this.department = department;
+        this.offSite = offSite;
+        this.fulltime = fulltime;
     }
+
 
     public String getName() {
         return name;
@@ -25,6 +27,14 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(int employeeNumber) {
+        this.employeeNumber = employeeNumber;
     }
 
     public boolean isIdle() {
@@ -43,27 +53,27 @@ public class Employee {
         this.stockTime = stockTime;
     }
 
-    public int getTemp() {
-        return department;
-    }
-
-    public void setTemp(int temp) {
-        this.department = temp;
-    }
-
-    public int getEmployeeNumber() {
-        return employeeNumber;
-    }
-
-    public void setEmployeeNumber(int employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
     public int getDepartment() {
         return department;
     }
 
     public void setDepartment(int department) {
         this.department = department;
+    }
+
+    public boolean isOffSite() {
+        return offSite;
+    }
+
+    public void setOffSite(boolean offSite) {
+        this.offSite = offSite;
+    }
+
+    public boolean isFulltime() {
+        return fulltime;
+    }
+
+    public void setFulltime(boolean fulltime) {
+        this.fulltime = fulltime;
     }
 }

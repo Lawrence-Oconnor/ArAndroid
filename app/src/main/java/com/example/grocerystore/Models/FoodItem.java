@@ -8,22 +8,39 @@ public class FoodItem {
     private String itemDescription;
     private String itemCode;
     private String SKU;
-    int totalInitialQuantity;
     private float unitPriceCustomer;
     private float unitPriceFarmer;
     private float totalPrice;
+    private int maxFOH;
+    private int maxBOH;
+    private int stockFOH;
+    private int stockBOH;
+    private int stockTotal;
 
-    public FoodItem(String department, String departmentCode, String itemDescription, String itemCode, String SKU, int totalInitialQuantity, float unitPriceCustomer, float unitPriceFarmer, float totalPrice) {
+
+    public FoodItem(String department, String departmentCode, String itemDescription, String itemCode, String SKU, float unitPriceCustomer,
+                    float unitPriceFarmer, float totalPrice, int maxFOH, int maxBOH, int stockFOH, int stockBOH, int stockTotal) {
+
+        //do we need these
         this.department = department;
         this.departmentCode = departmentCode;
+
         this.itemDescription = itemDescription;
+
+        //do we need these
         this.itemCode = itemCode;
         this.SKU = SKU;
-        this.totalInitialQuantity = totalInitialQuantity;
         this.unitPriceCustomer = unitPriceCustomer;
         this.unitPriceFarmer = unitPriceFarmer;
+
         this.totalPrice = totalPrice;
+        this.maxFOH = maxFOH;
+        this.maxBOH = maxBOH;
+        this.stockFOH = stockFOH;
+        this.stockBOH = stockBOH;
+        this.stockTotal = stockTotal;
     }
+
 
     public String getDepartment() {
         return department;
@@ -65,14 +82,6 @@ public class FoodItem {
         this.SKU = SKU;
     }
 
-    public int getTotalInitialQuantity() {
-        return totalInitialQuantity;
-    }
-
-    public void setTotalInitialQuantity(int totalInitialQuantity) {
-        this.totalInitialQuantity = totalInitialQuantity;
-    }
-
     public float getUnitPriceCustomer() {
         return unitPriceCustomer;
     }
@@ -95,5 +104,45 @@ public class FoodItem {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public int getMaxFOH() {
+        return maxFOH;
+    }
+
+    public void setMaxFOH(int maxFOH) {
+        this.maxFOH = maxFOH;
+    }
+
+    public int getMaxBOH() {
+        return maxBOH;
+    }
+
+    public void setMaxBOH(int maxBOH) {
+        this.maxBOH = maxBOH;
+    }
+
+    public int getStockFOH() {
+        return stockFOH;
+    }
+
+    public void setStockFOH(int stockFOH) {
+        this.stockFOH = stockFOH;
+    }
+
+    public int getStockBOH() {
+        return stockBOH;
+    }
+
+    public void setStockBOH(int stockBOH) {
+        this.stockBOH = stockBOH;
+    }
+
+    public int getStockTotal() {
+        return stockTotal;
+    }
+
+    public void setStockTotal(int stockTotal) {
+        this.stockTotal = stockTotal;
     }
 }

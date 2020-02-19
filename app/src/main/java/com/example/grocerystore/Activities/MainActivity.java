@@ -43,38 +43,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /*
     *Game Timer - implement the timer in a thread then do specifics later
     *Refresh method to manage charts
-
-    * create modal fragment for buttons and use switch statement to load views
-
-    * declare correct charts parameters
-    * move charts to other class
-    * create update method to dynamically update the charts on refresh
+    * create update method toupdate the charts on refresh
     *hook the charts to refresh timer
     * */
 
+    //Buttons
     Button restock;
     Button delivery;
     Button release;
     Button callIn;
     Button reassign;
 
+    //charts
     PieChart pieChart1;
     BarChart barChart;
     LineChart lineChart;
 
     Store day;
 
-    Dialog popupContainer;
-
-
     private int dayCount;
     private Timer clock = new Timer();
+
+
+    ArrayList<Employee> employees;
+    ArrayList <String> departments;
+    ArrayList <String> foods;
+    ArrayList<FoodItem> items;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setupView();
 
         //Testing initialization of multiple chart types
@@ -82,13 +82,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         barChartTest();
         lineChartTest();
 
-        initializeEmployees();
+
         initializeDay();
 
-
-
-        //for later use
+        //for later use/ set up default charts
         initializeCharts();
+
+        //update chart method updates on hour of game time
         refreshCharts();
 
 
@@ -96,13 +96,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initializeDay() {
 
-        ArrayList <String> departments = new ArrayList<>();
-        ArrayList <String> foods = new ArrayList<>();
-        ArrayList<FoodItem> items = new ArrayList<>();
+        //fills Array with Employees
+        initializeEmployees();
+        //fills array of with current stock of food
+        initializeStock();
+
+
+        //TODO
+        //need to increment the day on refresh
+        //initializing a day with the default values, starter array of employees, departments and foods
+        day = new Store(1,100,12,10,20,departments,employees,items);
+
+    }
+
+    private void initializeStock() {
+        departments = new ArrayList<>();
+        foods = new ArrayList<>();
+        items = new ArrayList<>();
+
         int sampleInitial =150;
         float priceCustomer =0.99f, priceFarmer= 0.50f, totalPrice = 148.50f;
-
-
 
         items.add(new FoodItem("Produce", "PR", "Apples", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("Produce", "PR", "Bananas", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
@@ -127,40 +140,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         departments.add( "Dry Goods");
         departments.add( "Frozen");
         departments.add( "Dairy" );
-        //departments should be a dictionary or maybe iEnumerable not an array so that we can refer to it
-        //
-
-
-//TODO make global so that we can make a get idle method
-        ArrayList<Employee> employeesList = new ArrayList<>();
-        employeesList.add(new Employee("Sam", 1,true,45,2));
-        employeesList.add(new Employee("Maggy", 3,true,45,2));
-        employeesList.add(new Employee("Emile", 3,true,45,2));
-
-
-        String temp = new String(departments.get(1));// we can use this instead to get the index to display.
-
-        //to get amount of employees in a certsin department / idle run a for loop
-
-        //TODO
-        //need to increment the day on refresh
-        day = new Store(1,employeesList,items,1);
-
     }
+
+
+    private void initializeEmployees() {
+
+        employees = new ArrayList<>();
+
+        for(int i=0; i< 10; i++)
+        {
+            employees.add(new Employee("Employee",i+1,true,45.0,1,false, false));
+            //use String temp = new String(departments.get(1)); to access emplyee dept string
+        }
+    }
+
+
     private void refreshCharts(){
 
     }
 
     private void initializeCharts() {
-    }
-    private void initializeEmployees() {
-
-        ArrayList<Employee> Employees = new ArrayList<>();
-
-        Employee tester = new Employee();
-        tester.setIdle(true);
-        tester.setStockTime(45);//mins - hours dont know
-        //tester.setDepartment();//make department into an enum that coresponds to a specific department
 
 
     }
