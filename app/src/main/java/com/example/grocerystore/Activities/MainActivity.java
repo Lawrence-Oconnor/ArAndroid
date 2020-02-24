@@ -8,9 +8,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.grocerystore.Dialogs.popupMenu;
+import com.example.grocerystore.HelperClasses.updateDay;
 import com.example.grocerystore.Models.Employee;
 import com.example.grocerystore.Models.FoodItem;
 import com.example.grocerystore.Models.Store;
@@ -43,9 +45,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /*
     *Game Timer - implement the timer in a thread then do specifics later
     *Refresh method to manage charts
-    * create update method toupdate the charts on refresh
+    * create update method to update the charts on refresh
     *hook the charts to refresh timer
+    * \
+    * All of this code should be moved to a severate activity -
+    * main activity will keep track of day in a loop - however many iterations
+    * and launch the realtime activity with the day number to get the correct data
+    * make a blank day in the main activity - in the realtime activity return the day obj
+    *
     * */
+
+    Thread sample;
+
 
     //Buttons
     Button restock;
@@ -53,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button release;
     Button callIn;
     Button reassign;
+
+    TextView tvDay;
 
     //charts
     PieChart pieChart1;
@@ -91,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //update chart method updates on hour of game time
         refreshCharts();
 
-
     }
 
     private void initializeDay() {
@@ -107,7 +119,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //initializing a day with the default values, starter array of employees, departments and foods
         day = new Store(1,100,12,10,20,departments,employees,items);
 
+        tvDay.setText("DAY :" + day.getStoreDay());
+
+
     }
+/*
+    private void dayThread()
+    {
+        //code to be moved to a thread to run every hour
+
+        //updating the day with methods in Update day
+        day = updateDay.expireInventory(day);
+        day = updateDay.checkoutFood(day);
+        day = updateDay.foodToRegister(day);
+        day = updateDay.returnFoodToShelves(day);
+
+
+
+        //thread end of day
+        day = updateDay.pullItemsOffShelves(day);
+        day = updateDay.payEmployees(day);
+        day = updateDay.expireInventory(day);
+
+
+            checkForDelivery();
+
+
+
+       //copy the logic for these
+            registers.checkoutFoods();
+            // if theres any at the end of the day, return the foods to shelves
+            registers.returnFoodsToShelves();
+
+
+
+        // thread for END OF EACH HOUR
+        day = updateDay.pullItemsOffShelves(day);
+        day = updateDay.payEmployees(day);
+
+
+
+            registers.checkoutFoods();
+        }
+
+        */
 
     private void initializeStock() {
         departments = new ArrayList<>();
@@ -116,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int sampleInitial =150;
         float priceCustomer =0.99f, priceFarmer= 0.50f, totalPrice = 148.50f;
-
+/*
         items.add(new FoodItem("Produce", "PR", "Apples", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("Produce", "PR", "Bananas", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("DryGoods", "PR", "Cereal", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
@@ -125,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         items.add(new FoodItem("Frozen", "PR", "Dessert", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("Dairy", "PR", "Milk", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("Dairy", "PR", "Eggs", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
-
+*/
         foods.add("Apples");
         foods.add("Bananas");
         foods.add("Cereal");
@@ -166,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void lineChartTest() {
 
-        lineChart = (LineChart)findViewById(R.id.lineChartTest);
+        lineChart = (LineChart)findViewById(R.id.Q2LineChart);
 
         List<Entry> entries1 = new ArrayList<>();
         entries1.add(new Entry(0f, 34f));
@@ -266,6 +321,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         release = findViewById(R.id.btnReleaseEmployee);
         callIn = findViewById(R.id.btnCallEmployee);
         reassign = findViewById(R.id.btnReasEmployee);
+        tvDay = findViewById(R.id.tvDay);
 
         delivery.setOnClickListener(this);
         restock.setOnClickListener(this);

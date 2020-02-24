@@ -5,33 +5,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.example.grocerystore.HelperClasses.Charts;
 import com.example.grocerystore.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Historical extends AppCompatActivity {
 
+
+    //Quadrant 1
+    PieChart pieChartQ1A;
+    PieChart pieChartQ1B;
+    PieChart pieChartQ1C;
+    PieChart pieChartQ1D;
+    PieChart pieChartQ1E;
+    PieChart pieChartQ1F;
+
+    //Quadrant 2
     PieChart pieChart1;
     BarChart barChart;
     LineChart lineChart;
+
+
+    //Quadrant 3
+    PieChart pieChartQ3A;
+    PieChart pieChartQ3B;
+
+
+    //Quadrant 4
+    BarChart barChartQ4;
+    LineChart lineChartQ4;
+
+
+
     ArrayList<String> departments;
     ArrayList<String> foods;
     @Override
@@ -43,15 +58,75 @@ public class Historical extends AppCompatActivity {
         setupView();
         initlalValues();
 
-        pieChartTest();
-        barChartTest();
-        lineChartTest();
+
+        quadrant1();
+        quadrant2();
+        quadrant3();
+        quadrant4();
+
 
 
         //unwrap bundle that had the day
 
         //get data with the day
     }
+    private void quadrant1() {
+
+        pieChartQ1A = (PieChart) findViewById(R.id.pcQ1A);
+        pieChartQ1A = Charts.pieChart(pieChartQ1A);
+
+        pieChartQ1B = (PieChart) findViewById(R.id.pcQ1B);
+        pieChartQ1B = Charts.pieChart(pieChartQ1B);
+
+        pieChartQ1C = (PieChart) findViewById(R.id.pcQ1C);
+        pieChartQ1C = Charts.pieChart(pieChartQ1C);
+
+        //top charts above
+
+        pieChartQ1D = (PieChart) findViewById(R.id.pcQ1D);
+        pieChartQ1D = Charts.pieChart(pieChartQ1D);
+
+        pieChartQ1E = (PieChart) findViewById(R.id.pcQ1E);
+        pieChartQ1E = Charts.pieChart(pieChartQ1E);
+
+        pieChartQ1F = (PieChart) findViewById(R.id.pcQ1F);
+        pieChartQ1F = Charts.pieChart(pieChartQ1F);
+    }
+
+    public void quadrant2() {
+
+        pieChart1 = (PieChart) findViewById(R.id.chart1Pie);
+        pieChart1 = Charts.pieChart(pieChart1);
+
+        lineChart = (LineChart)findViewById(R.id.Q2LineChart);
+        lineChart = Charts.lineChart(lineChart);
+
+        barChart = (BarChart)findViewById(R.id.chartBarTest);
+        barChart = Charts.barChart(barChart);
+
+
+    }
+
+    //Line ch
+
+    private void quadrant3() {
+
+        pieChartQ3A = (PieChart) findViewById(R.id.pcQ3A);
+        pieChartQ3A = Charts.pieChart(pieChartQ3A);
+
+        pieChartQ3B = (PieChart) findViewById(R.id.pcQ3B);
+        pieChartQ3B = Charts.pieChart(pieChartQ3B);
+    }
+
+    private void quadrant4() {
+        lineChartQ4 = (LineChart)findViewById(R.id.Q4LineChart);
+        lineChartQ4 = Charts.lineChart(lineChartQ4);
+
+        barChartQ4 = (BarChart)findViewById(R.id.Q4BarChart);
+        barChartQ4 = Charts.barChart(barChartQ4);
+    }
+
+
 
     private void initlalValues() {
         foods = new ArrayList<>();
@@ -77,121 +152,4 @@ public class Historical extends AppCompatActivity {
     private void setupView() {
     }
 
-    private void lineChartTest() {
-
-        lineChart = (LineChart)findViewById(R.id.lineChartTest);
-
-        List<Entry> entries1 = new ArrayList<>();
-        entries1.add(new Entry(0f, 34f));
-        entries1.add(new Entry(1f, 75f));
-        entries1.add(new Entry(2f, 80f));
-        entries1.add(new Entry(3f, 22f));
-        entries1.add(new Entry(4f, 90f));
-        entries1.add(new Entry(5f, 22f));
-
-
-        LineDataSet dataset1 = new LineDataSet(entries1, "Test Set");
-        dataset1.setAxisDependency(YAxis.AxisDependency.LEFT);
-
-        XAxis xAxis = lineChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-       // final String[] testData = new String[]{"Milk", "Eggs", "Test3", "Test4", "Test5", "Test6"};
-        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(foods);
-        xAxis.setGranularity(1f);
-        xAxis.setValueFormatter(formatter);
-
-
-
-//data from food types
-
-
-        List<ILineDataSet>datasets = new ArrayList<ILineDataSet>();
-        datasets.add(dataset1);
-
-        LineData data = new LineData(datasets);
-        lineChart.setData(data);
-        lineChart.invalidate();
-        //lineChart.animateXY(22,22);
-    }
-
-    private void barChartTest() {
-        barChart = (BarChart)findViewById(R.id.chartBarTest);
-
-
-        BarDataSet barDataSet = new BarDataSet(getData(), "Data1");
-        BarDataSet barDataSet2 = new BarDataSet(getData(), "Data2");
-        BarDataSet barDataSet3 = new BarDataSet(getData(), "Data3");
-
-        barDataSet.setColor(Color.BLUE);
-        barDataSet2.setColor(Color.RED);
-        barDataSet3.setColor(Color.YELLOW);
-
-
-        barDataSet.setBarBorderWidth(0.1f);
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-
-        BarData barData = new BarData(barDataSet, barDataSet2, barDataSet3);
-        XAxis xAxis = barChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        //final String[] testData = new String[]{"Test1", "Test2", "Test3", "Test4", "Test5", "Test6"};
-        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(foods);
-        xAxis.setGranularity(1f);
-        xAxis.setValueFormatter(formatter);
-        barChart.setData(barData);
-        barChart.setFitBars(true);
-        barChart.getLegend().setEnabled(true);
-        //barChart.animateXY(5000, 5000);
-        barChart.invalidate();
-
-    }
-    private ArrayList getData(){
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, 30f));
-        entries.add(new BarEntry(1f, 80f));
-        entries.add(new BarEntry(2f, 60f));
-        entries.add(new BarEntry(3f, 50f));
-        entries.add(new BarEntry(4f, 70f));
-        entries.add(new BarEntry(5f, 60f));
-        return entries;
-    }
-
-
-    private void pieChartTest() {
-        //import into a new class
-        pieChart1 = (PieChart) findViewById(R.id.chart1Pie);
-        pieChart1.setUsePercentValues(true);
-        pieChart1.getDescription().setEnabled(false);
-        pieChart1.setExtraOffsets(0,0,0,0);
-
-        pieChart1.setDragDecelerationFrictionCoef(0.95f);
-
-        pieChart1.setDrawHoleEnabled(false);
-        // pieChart1.setHoleColor(Color.WHITE);
-        // pieChart1.setTransparentCircleRadius(61f);
-
-        ArrayList<PieEntry> values = new ArrayList<>();
-
-        values.add(new PieEntry(60f,"FOH"));
-        values.add(new PieEntry(10,"BOH"));
-        values.add(new PieEntry(5f,"EMPTY"));
-
-
-        PieDataSet dataset = new PieDataSet(values, "TEST VALUES");
-        dataset.setSliceSpace(3f);
-        dataset.setSelectionShift(5f);
-        dataset.setColors(ColorTemplate.MATERIAL_COLORS);
-
-        PieData data = new PieData(dataset);
-        data.setValueTextSize(10f);
-        data.setValueTextColor(Color.WHITE);
-
-
-        pieChart1.getLegend().setEnabled(true);
-        pieChart1.getDescription().setText("Description of my chart");
-        pieChart1.getDescription().setEnabled(true);
-        pieChart1.setData(data);
-
-
-
-    }
 }

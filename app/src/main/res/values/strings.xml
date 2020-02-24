@@ -6,9 +6,11 @@
     <string name="btn_reassign_employees">Reassign Employees</string>
     <string name="btn_call_in_employee">Call in Employee</string>
     <string name="btn_release_employee">Release Employee</string>
-    <string name="tv_stock">Stock</string>
-    <string name="tv_sales">Sales</string>
-    <string name="tv_employees">Employees</string>
-    <string name="tv_Register">Register</string>
+    <string name="tv_stock">Storage Information</string>
+    <string name="tv_sales">Financial Information</string>
+    <string name="tv_employees">Employee Information</string>
+    <string name="tv_Register">Register Information</string>
+    <string name="btn_Realtime">Realtime</string>
+    <string name="btn_Historical">Historical</string>
 
 </resources>

@@ -87,13 +87,14 @@
         android:id="@+id/tvDay"
         android:layout_width="56dp"
         android:layout_height="23dp"
-        android:text="day"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.003" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -172,7 +173,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvB"
+                android:id="@+id/cvQuad1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:cardBackgroundColor="#1EE968"
@@ -211,7 +212,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvC"
+                android:id="@+id/cvQuad3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:cardBackgroundColor="#F5DE9C"
@@ -250,7 +251,7 @@
                             android:layout_height="match_parent">
 
                             <com.github.mikephil.charting.charts.LineChart
-                                android:id="@+id/lineChartTest"
+                                android:id="@+id/Q2LineChart"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:foregroundGravity="right"
@@ -278,7 +279,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvD"
+                android:id="@+id/cvQuad4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:cardBackgroundColor="#1E80E9"

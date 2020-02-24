@@ -2,11 +2,13 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#ADADAD</color>
 
 
-    <color name="sectionTitles">#FFFFFF</color>
-    <color name="chartCardBackground">#CECECE</color>
+    <color name="sectionTitlesBackground">#D0E8FF</color>
+    <color name="sectionTitles">#131313</color>
+    <color name="chartCardBackground">#FAFAFA</color>
+    <color name="chartOffset">#EBEBEB</color>
     <color name="sectionedDashBackground">#DFFBFF</color>
     <color name="mainDashBackground">#F1F1F1</color>
 </resources>
