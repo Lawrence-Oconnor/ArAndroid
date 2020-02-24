@@ -9,29 +9,34 @@
 
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Test Button"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_Realtime"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="268dp"
         android:layout_height="103dp"
-        android:text="Test Button"
+        android:layout_marginEnd="340dp"
+        android:text="@string/btn_Realtime"
         android:textAlignment="center"
+        android:textColorLink="@color/chartCardBackground"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <Button
+        android:id="@+id/btn_Historical"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="268dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="340dp"
+        android:text="@string/btn_Historical"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
+        app:layout_constraintVertical_bias="0.486" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

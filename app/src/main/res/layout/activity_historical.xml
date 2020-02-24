@@ -6,4 +6,483 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Historical">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".Activities.MainActivity">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="56dp"
+            android:layout_height="23dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.009"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.003" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAllQuadrants"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.254"
+            app:layout_constraintWidth_percent="1.0">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrAllQuadrants"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvQuad2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:foregroundGravity="clip_horizontal|clip_vertical"
+                    app:cardBackgroundColor="@color/chartCardBackground"
+                    app:cardElevation="10dp"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <TextView
+                        android:id="@+id/tvStock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/sectionTitlesBackground"
+                        android:gravity="center"
+                        android:text="@string/tv_stock"
+                        android:textColor="@color/sectionTitles"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cvA"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView5"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="false"
+                            app:cardElevation="10dp"
+                            app:layout_constraintBottom_toTopOf="@+id/cardView7"
+                            app:layout_constraintEnd_toStartOf="@+id/cardView6"
+                            app:layout_constraintHeight_percent=".5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".5">
+
+                            <com.github.mikephil.charting.charts.LineChart
+                                android:id="@+id/Q2LineChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:foregroundGravity="right"
+                                app:layout_constraintHeight_percent=".5"
+                                app:layout_constraintWidth_percent="1">
+
+                            </com.github.mikephil.charting.charts.LineChart>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView7"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:foregroundGravity="bottom"
+                            app:cardElevation="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent="1">
+
+                            <com.github.mikephil.charting.charts.BarChart
+                                android:id="@+id/chartBarTest"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:layout_constraintHeight_percent="1.0"
+                                app:layout_constraintWidth_percent="1.0" />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView6"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".5"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".5">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/chart1Pie"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:layout_constraintHeight_percent=".5"
+                                app:layout_constraintWidth_percent=".5" />
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvQuad1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/chartCardBackground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <TextView
+                        android:id="@+id/tvEmployees"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/sectionTitlesBackground"
+                        android:gravity="center"
+                        android:text="@string/tv_employees"
+                        android:textColor="@color/sectionTitles"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center"
+                        android:text="@string/btn_Historical" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="48dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ1A"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:foregroundGravity="left"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1A"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ1B"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1B"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardviewQ1C"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1C"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </androidx.cardview.widget.CardView>
+
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/CardViewQ1B" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ1D"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1D"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ1E"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:foregroundGravity="left"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1E"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ1F"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent=".45"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintWidth_percent=".33">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ1F"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvQuad3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/chartOffset"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <TextView
+                        android:id="@+id/tvSales"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/sectionTitlesBackground"
+                        android:gravity="center"
+                        android:text="@string/tv_sales"
+                        android:textColor="@color/sectionTitles"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ3A"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="4dp"
+                            android:foregroundGravity="left"
+                            app:cardElevation="4dp"
+                            app:cardMaxElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHeight_percent="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5"
+                            app:layout_constraintWidth_percent=".49">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ3A"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/CardViewQ3B"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="4dp"
+                            android:foregroundGravity="left"
+                            app:cardElevation="4dp"
+                            app:cardMaxElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="1.0"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5"
+                            app:layout_constraintWidth_percent=".49">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pcQ3B"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvQuad4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/chartOffset"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <TextView
+                        android:id="@+id/tvRegisters"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/sectionTitlesBackground"
+                        android:gravity="center"
+                        android:text="@string/tv_Register"
+                        android:textColor="@color/sectionTitles"
+                        android:textColorLink="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="4dp"
+                            app:cardBackgroundColor="@color/chartCardBackground"
+                            app:cardElevation="4dp"
+                            app:cardMaxElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHeight_percent="1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".49">
+
+                            <com.github.mikephil.charting.charts.BarChart
+                                android:id="@+id/Q4BarChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:layout_constraintHeight_percent="1.0"
+                                app:layout_constraintWidth_percent="1.0" />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="4dp"
+                            app:cardBackgroundColor="@color/chartCardBackground"
+                            app:cardElevation="4dp"
+                            app:cardMaxElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent=".49">
+
+                            <com.github.mikephil.charting.charts.LineChart
+                                android:id="@+id/Q4LineChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:foregroundGravity="right"
+                                app:layout_constraintHeight_percent=".5"
+                                app:layout_constraintWidth_percent="1">
+
+                            </com.github.mikephil.charting.charts.LineChart>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

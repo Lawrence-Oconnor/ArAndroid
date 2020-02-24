@@ -3,12 +3,12 @@ package com.example.grocerystore.Models;
 public class Employee {
     private String name;
     private int employeeNumber;
-    private boolean idle;
+
     private double stockTime;
     private int department;
     private boolean offSite;
     private boolean fulltime;
-
+    private boolean idle;
 
     public Employee(String name, int employeeNumber, boolean idle, double stockTime, int department, boolean offSite, boolean fulltime) {
         this.name = name;

@@ -25,10 +25,7 @@ public class EmployeeTesting extends AppCompatActivity {
         double stockTime;
         int temp;
 
-        Employee tempEmployee = new Employee(/*
-        set the values in the employee
-        with what we have in this method
-        all hardcoded valuesc*/);
+
 
         //create list of employees on initialization
         //on the screen create the draggable recyclerview

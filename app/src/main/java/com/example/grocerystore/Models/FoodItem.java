@@ -3,11 +3,8 @@ package com.example.grocerystore.Models;
 public class FoodItem {
 
 
-    private String department;
-    private String departmentCode;
-    private String itemDescription;
-    private String itemCode;
-    private String SKU;
+    private int department;
+    private String itemName;
     private float unitPriceCustomer;
     private float unitPriceFarmer;
     private float totalPrice;
@@ -17,22 +14,12 @@ public class FoodItem {
     private int stockBOH;
     private int stockTotal;
 
-
-    public FoodItem(String department, String departmentCode, String itemDescription, String itemCode, String SKU, float unitPriceCustomer,
-                    float unitPriceFarmer, float totalPrice, int maxFOH, int maxBOH, int stockFOH, int stockBOH, int stockTotal) {
-
-        //do we need these
+    public FoodItem(int department, String itemName, float unitPriceCustomer, float unitPriceFarmer, float totalPrice,
+                    int maxFOH, int maxBOH, int stockFOH, int stockBOH, int stockTotal) {
         this.department = department;
-        this.departmentCode = departmentCode;
-
-        this.itemDescription = itemDescription;
-
-        //do we need these
-        this.itemCode = itemCode;
-        this.SKU = SKU;
+        this.itemName = itemName;
         this.unitPriceCustomer = unitPriceCustomer;
         this.unitPriceFarmer = unitPriceFarmer;
-
         this.totalPrice = totalPrice;
         this.maxFOH = maxFOH;
         this.maxBOH = maxBOH;
@@ -41,45 +28,20 @@ public class FoodItem {
         this.stockTotal = stockTotal;
     }
 
-
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
-    public String getDepartmentCode() {
-        return departmentCode;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setDepartmentCode(String departmentCode) {
-        this.departmentCode = departmentCode;
-    }
-
-    public String getItemDescription() {
-        return itemDescription;
-    }
-
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
-
-    public String getItemCode() {
-        return itemCode;
-    }
-
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
-    }
-
-    public String getSKU() {
-        return SKU;
-    }
-
-    public void setSKU(String SKU) {
-        this.SKU = SKU;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public float getUnitPriceCustomer() {
