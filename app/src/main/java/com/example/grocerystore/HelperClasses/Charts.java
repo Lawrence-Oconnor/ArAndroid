@@ -46,7 +46,7 @@ public class Charts {
 
 
 
-    public static PieChart pieChart(PieChart pieChart1)
+    public static PieChart pieChart(PieChart pieChart1, ArrayList<String> labels)
     {
 
         pieChart1.setUsePercentValues(true);
@@ -59,11 +59,18 @@ public class Charts {
 
 
 
+
         ArrayList<PieEntry> values = new ArrayList<>();
 
-        values.add(new PieEntry(60f,"FOH"));
-        values.add(new PieEntry(10,"BOH"));
-        values.add(new PieEntry(5f,"EMPTY"));
+
+        for (String temp:labels ) {
+            values.add(new PieEntry(60f,temp));
+
+        }
+
+       // values.add(new PieEntry(60f,"FOH"));
+        //values.add(new PieEntry(10,"BOH"));
+        //values.add(new PieEntry(5f,"EMPTY"));
 
 
         PieDataSet dataset = new PieDataSet(values, "");
