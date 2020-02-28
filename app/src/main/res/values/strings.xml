@@ -13,4 +13,14 @@
     <string name="btn_Realtime">Realtime</string>
     <string name="btn_Historical">Historical</string>
 
+
+
+    <string name="tv_produce">Produce</string>
+    <string name="tv_dryGoods">Dry Goods</string>
+    <string name="tv_frozen">Frozen</string>
+    <string name="tv_dairy">Dairy</string>
+    <string name="tv_registers">Registers</string>
+    <string name="tv_total">Total</string>
+
+
 </resources>

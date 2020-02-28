@@ -5,6 +5,7 @@
     <color name="colorAccent">#ADADAD</color>
 
 
+    <color name="borderColor">#2B2B2B</color>
     <color name="sectionTitlesBackground">#D0E8FF</color>
     <color name="sectionTitles">#131313</color>
     <color name="chartCardBackground">#FAFAFA</color>

@@ -9,23 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Historical"></activity>
+        <activity android:name=".Dialogs.UserInputs"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Activities.Historical"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Dialogs.popupMenu"
             android:label="Test Popup"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity android:name=".Activities.EmployeeTesting" />
         <activity
             android:name=".Activities.StartScreen"
+            android:configChanges="orientation"
             android:label="@string/title_activity_start_screen"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter >
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity">
-        </activity>
+        <activity android:name=".Activities.MainActivity"></activity>
     </application>
 
 </manifest>
