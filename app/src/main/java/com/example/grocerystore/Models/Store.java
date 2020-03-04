@@ -10,12 +10,13 @@ public class Store {
     private int dayHours;
     private int fullTimePay;
     private int partTimePay;
+    private int shift;
 
     private ArrayList <String> departments;
     private ArrayList<Employee> employees;
     private ArrayList<FoodItem> foodItems;
 
-    public Store(int storeDay, int cash, int dayHours, int fullTimePay, int partTimePay,
+    public Store(int storeDay, int shift, int cash, int dayHours, int fullTimePay, int partTimePay,
                  ArrayList<String> departments, ArrayList<Employee> employees, ArrayList<FoodItem> foodItems) {
 
         this.storeDay = storeDay;
@@ -26,6 +27,15 @@ public class Store {
         this.departments = departments;
         this.employees = employees;
         this.foodItems = foodItems;
+        this.shift = shift;
+    }
+
+    public int getShift() {
+        return shift;
+    }
+
+    public void setShift(int shift) {
+        this.shift = shift;
     }
 
     public int getStoreDay() {
