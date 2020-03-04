@@ -100,20 +100,34 @@
                             android:layout_margin="4dp"
                             app:cardElevation="4dp"
                             app:cardMaxElevation="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHeight_percent=".48"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintWidth_percent=".48">
 
-                            <com.github.mikephil.charting.charts.LineChart
-                                android:id="@+id/Q2LineChart"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:foregroundGravity="right"
-                                app:layout_constraintHeight_percent="1"
-                                app:layout_constraintWidth_percent="1">
+                                android:orientation="vertical">
 
-                            </com.github.mikephil.charting.charts.LineChart>
+                                <TextView
+                                    android:id="@+id/textView14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/tv_Expired" />
+
+                                <com.github.mikephil.charting.charts.LineChart
+                                    android:id="@+id/Q2LineChart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:foregroundGravity="right"
+                                    app:layout_constraintHeight_percent="1"
+                                    app:layout_constraintWidth_percent="1">
+
+                                </com.github.mikephil.charting.charts.LineChart>
+                            </LinearLayout>
+
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
@@ -123,17 +137,31 @@
                             android:layout_margin="4dp"
                             app:cardElevation="4dp"
                             app:cardMaxElevation="4dp"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintHeight_percent=".48"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintWidth_percent=".48">
 
-                            <com.github.mikephil.charting.charts.PieChart
-                                android:id="@+id/chart1Pie"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                app:layout_constraintHeight_percent="1"
-                                app:layout_constraintWidth_percent="1" />
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView16"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/tv_Storage" />
+
+                                <com.github.mikephil.charting.charts.PieChart
+                                    android:id="@+id/chart1Pie"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:layout_constraintHeight_percent="1"
+                                    app:layout_constraintWidth_percent="1" />
+                            </LinearLayout>
+
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
@@ -144,18 +172,32 @@
                             android:foregroundGravity="bottom"
                             app:cardElevation="4dp"
                             app:cardMaxElevation="4dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHeight_percent=".48"
                             app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintWidth_percent=".98">
 
-                            <com.github.mikephil.charting.charts.BarChart
-                                android:id="@+id/chartBarTest"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                app:layout_constraintHeight_percent="1.0"
-                                app:layout_constraintWidth_percent="1.0" />
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="@string/tv_Quantities" />
+
+                                <com.github.mikephil.charting.charts.BarChart
+                                    android:id="@+id/chartBarTest"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:layout_constraintHeight_percent="1.0"
+                                    app:layout_constraintWidth_percent="1.0" />
+                            </LinearLayout>
+
                         </androidx.cardview.widget.CardView>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

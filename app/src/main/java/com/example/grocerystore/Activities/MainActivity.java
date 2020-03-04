@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //TODO
         //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
-        day = new Store(1,100,12,10,20,departments,employees,items);
+        day = new Store(1,1,100,12,10,20,departments,employees,items);
 
         tvDay.setText("DAY :" + day.getStoreDay());
 
