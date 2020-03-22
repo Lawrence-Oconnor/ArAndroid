@@ -22,9 +22,9 @@
     <string name="tv_total">Total</string>
 
 
-    <string name="tv_Quantities">Average Product Quantities for</string>
-    <string name="tv_Storage">Average Storage Quantities for</string>
-    <string name="tv_Expired">Expired Items for</string>
+    <string name="tv_Quantities">Average Product Quantities </string>
+    <string name="tv_Storage">Average Storage Quantities </string>
+    <string name="tv_Expired">Average Expired Items</string>
 
 
 
@@ -47,6 +47,9 @@
 
     <string name="tv_AvgRev">Average Revenue by Items in Dollars</string>
     <string name="tv_AvgCost">Average Costs by Category in Dollars</string>
+
+
+    <string name="tv_AvgLeaving">Average Items Leaving by shift</string>
 
 
 </resources>

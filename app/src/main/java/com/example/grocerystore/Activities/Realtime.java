@@ -241,7 +241,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void barChartTest() {
-        barChart = (BarChart)findViewById(R.id.chartBarTest);
+        barChart = (BarChart)findViewById(R.id.bcQ2A);
 
 
         BarDataSet barDataSet = new BarDataSet(getData(), "TestData");

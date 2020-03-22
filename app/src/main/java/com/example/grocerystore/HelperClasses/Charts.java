@@ -2,11 +2,10 @@ package com.example.grocerystore.HelperClasses;
 
 import android.graphics.Color;
 
-import com.example.grocerystore.R;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -19,9 +18,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -48,7 +45,7 @@ public class Charts {
 
 
 
-    public static PieChart pieChart(PieChart pieChart1, ArrayList<String> labels)
+    public static PieChart pieChart(PieChart pieChart1, ArrayList<String> labels, ArrayList<Integer> colors)
     {
 
         pieChart1.setUsePercentValues(true);
@@ -64,7 +61,7 @@ public class Charts {
 
         ArrayList<PieEntry> values = new ArrayList<>();
 
-
+//TODO take values from excel once balances
         for (String temp:labels ) {
             values.add(new PieEntry(60f,temp));
 
@@ -74,7 +71,8 @@ public class Charts {
         PieDataSet dataset = new PieDataSet(values, "");
         dataset.setSliceSpace(3f);
         dataset.setSelectionShift(5f);
-        dataset.setColors(ColorTemplate.MATERIAL_COLORS);
+
+        dataset.setColors(colors);
         dataset.setYValuePosition(PieDataSet.ValuePosition.INSIDE_SLICE);
 
 
@@ -147,51 +145,90 @@ public class Charts {
 
     }
 
-    public static BarChart barChart(BarChart barChart)
+    public static BarChart barChart(BarChart barChart, ArrayList<String> titles, ArrayList<Integer> color, ArrayList<BarEntry> entries)
     {
-        ArrayList <String> foods ;
-        foods = new ArrayList<>();
-        foods.add("Apples");
-        foods.add("Bananas");
-        foods.add("Cereal");
-        foods.add("Cookies");
-        foods.add("Pizza");
-        foods.add("Dessert");
-        foods.add("Milk");
-        foods.add("Eggs");
 
 
-        BarDataSet barDataSet = new BarDataSet(getData(), "Data1");
-        BarDataSet barDataSet2 = new BarDataSet(getData(), "Data2");
-        BarDataSet barDataSet3 = new BarDataSet(getData(), "Data3");
 
-        barDataSet.setColor(Color.BLUE);
-        barDataSet2.setColor(Color.RED);
-        barDataSet3.setColor(Color.YELLOW);
+        BarDataSet barDataSet = new BarDataSet(entries, "");
+        //BarDataSet barDataSet2 = new BarDataSet(getData(), "Data2");
+        //BarDataSet barDataSet3 = new BarDataSet(getData(), "Data3");
+
+        barDataSet.setColors(color);
+        // barDataSet2.setColor(Color.RED);
+        // barDataSet3.setColor(Color.YELLOW);
 
 
 
         barDataSet.setBarBorderWidth(0.1f);
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        //barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        barDataSet.setStackLabels(new String[]{
+                "BOH", "FOH", "Transit"
+        });
 
-        BarData barData = new BarData(barDataSet, barDataSet2, barDataSet3);
+        BarData barData = new BarData(barDataSet);//, barDataSet2, barDataSet3);
         barData.setBarWidth(.5f);
+
+
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         //final String[] testData = new String[]{"Test1", "Test2", "Test3", "Test4", "Test5", "Test6"};
-        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(foods);
+        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(titles);
         xAxis.setGranularity(1f);
         xAxis.setValueFormatter(formatter);
         barChart.setData(barData);
         barChart.setFitBars(true);
         barChart.getLegend().setEnabled(true);
-        barChart.groupBars(0,0.3f,.02f);
+        //barChart.groupBars(0,0.3f,.02f);
         //barChart.animateXY(5000, 5000);
         barChart.invalidate();
 
 
         return barChart;
     }
+
+
+
+
+    public static HorizontalBarChart barChartH(HorizontalBarChart barChart, ArrayList<String> shifts, ArrayList<Integer> color, ArrayList<BarEntry> entries)
+    {
+
+
+
+        BarDataSet barDataSet = new BarDataSet(entries, "Data1");
+        //BarDataSet barDataSet2 = new BarDataSet(getData(), "Data2");
+        //BarDataSet barDataSet3 = new BarDataSet(getData(), "Data3");
+
+        barDataSet.setColors(color);
+        // barDataSet2.setColor(Color.RED);
+        // barDataSet3.setColor(Color.YELLOW);
+
+
+
+        barDataSet.setBarBorderWidth(0.1f);
+        //barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        BarData barData = new BarData(barDataSet);//, barDataSet2, barDataSet3);
+        barData.setBarWidth(.5f);
+
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        //final String[] testData = new String[]{"Test1", "Test2", "Test3", "Test4", "Test5", "Test6"};
+        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(shifts);
+        xAxis.setGranularity(1f);
+        xAxis.setValueFormatter(formatter);
+        barChart.setData(barData);
+        barChart.setFitBars(true);
+        barChart.getLegend().setEnabled(true);
+        //barChart.groupBars(0,0.3f,.02f);
+        //barChart.animateXY(5000, 5000);
+        barChart.invalidate();
+
+
+        return barChart;
+    }
+
 
     private static ArrayList getData(){
     ArrayList<BarEntry> entries = new ArrayList<>();

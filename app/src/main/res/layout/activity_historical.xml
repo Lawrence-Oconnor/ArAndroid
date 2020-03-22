@@ -104,7 +104,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHeight_percent=".48"
-                            app:layout_constraintWidth_percent=".48">
+                            app:layout_constraintWidth_percent=".64">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -118,15 +118,16 @@
                                     android:layout_gravity="center_horizontal"
                                     android:text="@string/tv_Expired" />
 
-                                <com.github.mikephil.charting.charts.LineChart
-                                    android:id="@+id/Q2LineChart"
+                                <com.github.mikephil.charting.charts.BarChart
+                                    android:id="@+id/bcQ2B"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:layout_marginBottom="4dp"
                                     android:foregroundGravity="right"
                                     app:layout_constraintHeight_percent="1"
                                     app:layout_constraintWidth_percent="1">
 
-                                </com.github.mikephil.charting.charts.LineChart>
+                                </com.github.mikephil.charting.charts.BarChart>
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
@@ -141,7 +142,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintHeight_percent=".48"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintWidth_percent=".48">
+                            app:layout_constraintWidth_percent=".33">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -192,7 +193,7 @@
                                     android:text="@string/tv_Quantities" />
 
                                 <com.github.mikephil.charting.charts.BarChart
-                                    android:id="@+id/chartBarTest"
+                                    android:id="@+id/bcQ2A"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     app:layout_constraintHeight_percent="1.0"
@@ -591,7 +592,25 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHeight_percent=".5"
-                            app:layout_constraintWidth_percent=".49" />
+                            app:layout_constraintWidth_percent=".49" >
+
+                            <TextView
+                                android:id="@+id/textView35"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="@string/tv_AvgLeaving" />
+
+                            <com.github.mikephil.charting.charts.HorizontalBarChart
+                                android:id="@+id/bcQ4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintHeight_percent="1.0"
+                                app:layout_constraintWidth_percent="1.0">
+
+                            </com.github.mikephil.charting.charts.HorizontalBarChart>
+                        </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/CardViewQ4D"
@@ -600,7 +619,64 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintHeight_percent=".5"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintWidth_percent=".49" />
+                            app:layout_constraintWidth_percent=".49" >
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:cropToPadding="false"
+                                app:srcCompat="@drawable/chart" />
+
+                            <TextView
+                                android:id="@+id/cv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="60dp"
+                                android:layout_marginVertical="60dp"
+                                android:text="TextView" />
+
+                            <TextView
+                                android:id="@+id/cv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="150dp"
+                                android:layout_marginTop="60dp"
+                                android:text="TextView" />
+
+                            <TextView
+                                android:id="@+id/cv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="100dp"
+                                android:text="TextView" />
+
+                            <TextView
+                                android:id="@+id/cv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="150dp"
+                                android:layout_marginTop="100dp"
+                                android:text="TextView" />
+
+                            <TextView
+                                android:id="@+id/cv5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="140dp"
+                                android:text="TextView" />
+
+                            <TextView
+                                android:id="@+id/cv6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="150dp"
+                                android:layout_marginTop="140dp"
+                                android:text="TextView" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/CardViewQ4B"

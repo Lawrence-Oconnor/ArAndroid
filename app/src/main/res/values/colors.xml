@@ -12,4 +12,46 @@
     <color name="chartOffset">#EBEBEB</color>
     <color name="sectionedDashBackground">#DFFBFF</color>
     <color name="mainDashBackground">#F1F1F1</color>
+
+
+
+
+
+    <color name="active">#5FA137</color>
+    <color name="offsite">#F80009</color>
+    <color name="idle">#FBB40A</color>
+
+
+    <color name="produce">#5FA137</color>
+    <color name="dairy">#355CB7</color>
+    <color name="dryGoods">#E66826</color>
+    <color name="frozen">#BE0004</color>
+    <color name="registers">#FBB40A</color>
+
+    <color name="apples">#2B471B</color>
+    <color name="banana">#BADBA5</color>
+    <color name="eggs">#244185</color>
+    <color name="milk">#8CB6E0</color>
+    <color name="pizza">#F81A07</color>
+    <color name="cookies">#F5BF9E</color>
+    <color name="cereal">#B64510</color>
+    <color name="desert">#F9646D</color>
+
+    <color name="delivery">#EE6C2C</color>
+    <color name="expiration">#FAB90A</color>
+    <color name="wages">#60A734</color>
+    <color name="productCost">#8F330A</color>
+    <color name="inventoryPenalty">#8B6104</color>
+
+    <color name="FOH">#D3EEFF</color>
+    <color name="BOH">#97B4DB</color>
+    <color name="EMPTY">#6DA4BD</color>
+
+    <color name="green">#68AA43</color>
+
+
+
+
+
+
 </resources>
