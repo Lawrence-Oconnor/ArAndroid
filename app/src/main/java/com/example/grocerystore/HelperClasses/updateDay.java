@@ -9,16 +9,11 @@ import java.util.Queue;
 import java.util.Random;
 
 public class updateDay {
-    /*
+/*
     //use this class to update the current Day
     //pass a day object and return it with the modifications
-
-
-
     //Expiration method
-
     //End day
-
     //any other manipulations to a day
 
 
@@ -94,7 +89,7 @@ public class updateDay {
 
     }
         // Start is called before the first frame update
-/*
+
         public void bringFoodToRegisters (FoodItem food)
         {
             queue.Enqueue(food);
@@ -134,6 +129,6 @@ public class updateDay {
 
     }
 
-
 */
+
 }

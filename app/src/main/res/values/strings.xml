@@ -26,4 +26,27 @@
     <string name="tv_Storage">Average Storage Quantities for</string>
     <string name="tv_Expired">Expired Items for</string>
 
+
+
+    <string name="tv_Status">How Many Employees are Active, Idle and Offsite?</string>
+    <string name="tv_Where">Where are Active Employees?</string>
+
+
+    <string name="tv_Shift1">Shift 1</string>
+    <string name="tv_Shift2">Shift 2</string>
+    <string name="tv_Shift3">Shift 3</string>
+
+    <string name="tv_Shift1Avg">Average Items Sold - Shift 1</string>
+    <string name="tv_Shift2Avg">Average Items Sold - Shift 2</string>
+    <string name="tv_Shift3Avg">Average Items Sold - Shift 3</string>
+
+    <string name="tv_EstRev">Estimated Revenue</string>
+    <string name="tv_EstCost">Estimated Cost</string>
+    <string name="tv_EstProfit">Estimated Profit</string>
+
+
+    <string name="tv_AvgRev">Average Revenue by Items in Dollars</string>
+    <string name="tv_AvgCost">Average Costs by Category in Dollars</string>
+
+
 </resources>

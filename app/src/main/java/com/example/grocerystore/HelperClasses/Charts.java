@@ -6,6 +6,7 @@ import com.example.grocerystore.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -18,6 +19,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
@@ -68,24 +70,28 @@ public class Charts {
 
         }
 
-       // values.add(new PieEntry(60f,"FOH"));
-        //values.add(new PieEntry(10,"BOH"));
-        //values.add(new PieEntry(5f,"EMPTY"));
-
 
         PieDataSet dataset = new PieDataSet(values, "");
         dataset.setSliceSpace(3f);
         dataset.setSelectionShift(5f);
         dataset.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataset.setYValuePosition(PieDataSet.ValuePosition.INSIDE_SLICE);
+
+
         PieData data = new PieData(dataset);
         data.setValueTextSize(10f);
         data.setValueTextColor(Color.WHITE);
+        data.setValueTextSize(12f);
 
 
-        pieChart1.getLegend().setEnabled(true);
+        pieChart1.getLegend().setEnabled(false);
+        //pieChart1.getLegend().setWordWrapEnabled(true);
         //pieChart1.getDescription().setText("Description of my chart");
         //pieChart1.getDescription().setEnabled(true);
         pieChart1.setData(data);
+        pieChart1.setDrawSliceText(false);
+
+
 
         return pieChart1;
 

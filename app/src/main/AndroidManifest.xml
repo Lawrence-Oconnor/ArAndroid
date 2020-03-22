@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Realtime"></activity>
+        <activity android:name=".Dialogs.ManageRegisters"></activity>
+        <activity android:name=".Dialogs.CallIn" />
+        <activity android:name=".Dialogs.Release" />
+        <activity android:name=".Dialogs.Restock" />
+        <activity android:name=".Dialogs.Delivery" />
         <activity
             android:name=".Dialogs.UserInputs"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity
             android:name=".Activities.Historical"
             android:configChanges="orientation"
@@ -34,7 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.Realtime" />
     </application>
 
 </manifest>

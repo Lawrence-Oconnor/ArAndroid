@@ -33,8 +33,8 @@ public class StartScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Historical Treatment", Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(getApplicationContext(), Historical.class);
-                startActivity(intent1);
+                Intent intent = new Intent(getApplicationContext(), Historical.class);
+                startActivity(intent);
             }
         });
 
@@ -43,7 +43,8 @@ public class StartScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Realtime Treatment",Toast.LENGTH_SHORT).show();
 
-                //TODO intent to launch Realtime Treatment
+                Intent intent = new Intent(getApplicationContext(), Realtime.class);
+                startActivity(intent);
             }
         });
     }
