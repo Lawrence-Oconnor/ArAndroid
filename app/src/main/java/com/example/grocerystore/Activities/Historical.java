@@ -182,28 +182,23 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     }
 
     private void quadrant4() {
-        lineChartQ4 = (LineChart)findViewById(R.id.Q4LineChart);
-        lineChartQ4 = Charts.lineChart(lineChartQ4);
+      //  lineChartQ4 = (LineChart)findViewById(R.id.Q4LineChart);
+        //lineChartQ4 = Charts.lineChart(lineChartQ4);
 
         pieChartQ4A = (PieChart) findViewById(R.id.pcQ4A);
-
-        pieChartQ3A = Charts.pieChart(pieChartQ3A, foods);
-        pieChartQ3A.getLegend().setEnabled(true);
-        pieChartQ3A.getLegend().setWordWrapEnabled(true);
-
+        pieChartQ4A = Charts.pieChart(pieChartQ3A, foods);
+        pieChartQ4A.getLegend().setEnabled(true);
+        pieChartQ4A.getLegend().setWordWrapEnabled(true);
+        pieChartQ4A.getLegend().setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        pieChartQ4A.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
         pieChartQ4B = (PieChart) findViewById(R.id.pcQ4B);
+        pieChartQ4B = Charts.pieChart(pieChartQ4B, foods);
 
-        pieChartQ3A = Charts.pieChart(pieChartQ3A, foods);
-        pieChartQ3A.getLegend().setEnabled(true);
-        pieChartQ3A.getLegend().setWordWrapEnabled(true);
 
 
         pieChartQ4C = (PieChart) findViewById(R.id.pcQ4C);
-
-        pieChartQ3A = Charts.pieChart(pieChartQ3A, foods);
-        pieChartQ3A.getLegend().setEnabled(true);
-        pieChartQ3A.getLegend().setWordWrapEnabled(true);
+        pieChartQ4C = Charts.pieChart(pieChartQ4C, foods);
 
 
     }
