@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.grocerystore.Dialogs.UserInputs;
@@ -16,11 +17,13 @@ import com.example.grocerystore.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
@@ -46,12 +49,16 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     //Quadrant 3
     PieChart pieChartQ3A;
     PieChart pieChartQ3B;
+    TextView tv_Rev;
+    TextView tv_Cost;
+    TextView tv_Profit;
 
 
     //Quadrant 4
     BarChart barChartQ4;
-    LineChart lineChartQ4;
-
+    PieChart pieChartQ4A;
+    PieChart pieChartQ4B;
+    PieChart pieChartQ4C;
 
 
     ArrayList<String> departments;
@@ -87,22 +94,53 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         pieChartQ1A = (PieChart) findViewById(R.id.pcQ1A);
         pieChartQ1A = Charts.pieChart(pieChartQ1A , statusLabels);
 
+        Legend l = pieChartQ1A.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(7f);
+        l.setYEntrySpace(0f);
+        l.setYOffset(0f);
+        l.setEnabled(true);
+        pieChartQ1A.setExtraOffsets(4,0,0,0);
+        pieChartQ1A.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1A));
+
+
         pieChartQ1B = (PieChart) findViewById(R.id.pcQ1B);
         pieChartQ1B = Charts.pieChart(pieChartQ1B, statusLabels);
+        pieChartQ1B.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1B));
+
 
         pieChartQ1C = (PieChart) findViewById(R.id.pcQ1C);
         pieChartQ1C = Charts.pieChart(pieChartQ1C, statusLabels);
+        pieChartQ1C.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1C));
 
         //top charts above
 
         pieChartQ1D = (PieChart) findViewById(R.id.pcQ1D);
         pieChartQ1D = Charts.pieChart(pieChartQ1D, departments);
+        pieChartQ1D.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1D));
 
         pieChartQ1E = (PieChart) findViewById(R.id.pcQ1E);
         pieChartQ1E = Charts.pieChart(pieChartQ1E, departments);
+        pieChartQ1E.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1E));
+
+        Legend le = pieChartQ1E.getLegend();
+        le.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        le.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        le.setOrientation(Legend.LegendOrientation.VERTICAL);
+        le.setDrawInside(false);
+        le.setXEntrySpace(7f);
+        le.setYEntrySpace(0f);
+        le.setYOffset(0f);
+        le.setEnabled(true);
+        pieChartQ1E.setExtraOffsets(16,0,0,0);
+
 
         pieChartQ1F = (PieChart) findViewById(R.id.pcQ1F);
         pieChartQ1F = Charts.pieChart(pieChartQ1F, departments);
+        pieChartQ1F.getData().getDataSet().setValueFormatter(new PercentFormatter(pieChartQ1F));
     }
 
     public void quadrant2() {
@@ -125,17 +163,44 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
 
         pieChartQ3A = (PieChart) findViewById(R.id.pcQ3A);
         pieChartQ3A = Charts.pieChart(pieChartQ3A, foods);
+        pieChartQ3A.getLegend().setEnabled(true);
+        pieChartQ3A.getLegend().setWordWrapEnabled(true);
 
         pieChartQ3B = (PieChart) findViewById(R.id.pcQ3B);
         pieChartQ3B = Charts.pieChart(pieChartQ3B, costLabels);
+        pieChartQ3B.getLegend().setEnabled(true);
+        pieChartQ3B.getLegend().setWordWrapEnabled(true);
+
+        tv_Cost = findViewById(R.id.textView13);
+        tv_Rev = findViewById(R.id.textView5);
+        tv_Profit = findViewById(R.id.textView6);
+
+        //TODO change to the value from that specific day
+        tv_Cost.setText("$0.00");
+        tv_Rev.setText("$0.00");
+        tv_Profit.setText("$0.00");
     }
 
     private void quadrant4() {
-        lineChartQ4 = (LineChart)findViewById(R.id.Q4LineChart);
-        lineChartQ4 = Charts.lineChart(lineChartQ4);
+      //  lineChartQ4 = (LineChart)findViewById(R.id.Q4LineChart);
+        //lineChartQ4 = Charts.lineChart(lineChartQ4);
 
-        barChartQ4 = (BarChart)findViewById(R.id.Q4BarChart);
-        barChartQ4 = Charts.barChart(barChartQ4);
+        pieChartQ4A = (PieChart) findViewById(R.id.pcQ4A);
+        pieChartQ4A = Charts.pieChart(pieChartQ3A, foods);
+        pieChartQ4A.getLegend().setEnabled(true);
+        pieChartQ4A.getLegend().setWordWrapEnabled(true);
+        pieChartQ4A.getLegend().setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        pieChartQ4A.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+
+        pieChartQ4B = (PieChart) findViewById(R.id.pcQ4B);
+        pieChartQ4B = Charts.pieChart(pieChartQ4B, foods);
+
+
+
+        pieChartQ4C = (PieChart) findViewById(R.id.pcQ4C);
+        pieChartQ4C = Charts.pieChart(pieChartQ4C, foods);
+
+
     }
 
 
