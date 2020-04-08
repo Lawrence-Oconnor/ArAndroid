@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.grocerystore.Dialogs.popupMenu;
+
 import com.example.grocerystore.Models.Employee;
 import com.example.grocerystore.Models.FoodItem;
 import com.example.grocerystore.Models.Store;
@@ -115,7 +115,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         //TODO
         //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
-        day = new Store(1,1,100,12,10,20,departments,employees,items);
+        day = new Store(1,1,100,12,10,20,100, 250, departments,employees,items);
 
         tvDay.setText("DAY :" + day.getStoreDay());
 
@@ -241,7 +241,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void barChartTest() {
-        barChart = (BarChart)findViewById(R.id.chartBarTest);
+        barChart = (BarChart)findViewById(R.id.bcQ2A);
 
 
         BarDataSet barDataSet = new BarDataSet(getData(), "TestData");
@@ -334,7 +334,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         //implement switch for buttons
         //Launches fragment in screen
         switch (v.getId()){
-
+/*
             case R.id.btnRestock:
                 Toast.makeText(getApplicationContext(),"Testing Button", Toast.LENGTH_SHORT).show();
                 Intent intent1 = new Intent(this, popupMenu.class);
@@ -366,7 +366,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
                 break;
 
 
-
+*/
 
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());

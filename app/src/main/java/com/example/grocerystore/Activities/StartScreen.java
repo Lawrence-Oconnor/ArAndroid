@@ -3,7 +3,8 @@ package com.example.grocerystore.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.grocerystore.Dialogs.popupMenu;
+
+import com.example.grocerystore.Models.Store;
 import com.example.grocerystore.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -29,10 +30,11 @@ public class StartScreen extends AppCompatActivity {
         historical = findViewById(R.id.btn_Historical);
         realtime = findViewById(R.id.btn_Realtime);
 
+
         historical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Historical Treatment", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Historical Treatment", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Historical.class);
                 startActivity(intent);
             }
@@ -42,7 +44,7 @@ public class StartScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Realtime Treatment",Toast.LENGTH_SHORT).show();
-
+//
                 Intent intent = new Intent(getApplicationContext(), Realtime.class);
                 startActivity(intent);
             }

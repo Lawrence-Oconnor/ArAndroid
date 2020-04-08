@@ -1,5 +1,7 @@
 package com.example.grocerystore.HelperClasses;
 
+import android.widget.Toast;
+
 import com.example.grocerystore.Models.Employee;
 import com.example.grocerystore.Models.FoodItem;
 import com.example.grocerystore.Models.Store;
@@ -9,7 +11,7 @@ import java.util.Queue;
 import java.util.Random;
 
 public class updateDay {
-/*
+
     //use this class to update the current Day
     //pass a day object and return it with the modifications
     //Expiration method
@@ -20,21 +22,33 @@ public class updateDay {
     public static Store expireInventory(Store store){
 
         ArrayList<FoodItem> foodItems= store.getFoodItems();
+        ArrayList<FoodItem> newFoodItems = new ArrayList<>();
 
     for( FoodItem temp :foodItems)
     {
-        int bohStock, totalStock;
-        float percentGoneBad = Random.Range(.05f, .10f);
+        int bohStock, fohStock, totalStock;
+
+        Random r = new Random();
+        float percentGoneBad = .05f + r.nextFloat() * (.10f - .05f);
+        float percentGoneBadFOH = .20f + r.nextFloat() * (.25f - .20f);
         int expired = (int)(temp.getStockBOH() * percentGoneBad);
+        int expiredFOH = (int)(temp.getStockFOH() * percentGoneBadFOH);
+
         bohStock= temp.getStockBOH();
         bohStock -= expired;
+        fohStock= temp.getStockFOH();
+        fohStock -= expiredFOH;
         temp.setStockBOH(bohStock) ;
+        temp.setStockFOH(fohStock) ;
         totalStock = temp.getStockTotal();
         totalStock -= expired;
+        totalStock -= expiredFOH;
         temp.setStockTotal(totalStock);
+        newFoodItems.add(temp);
 
     }
-        return store;
+    store.setFoodItems(newFoodItems);
+    return store;
     }
 
     //register logic
@@ -50,11 +64,11 @@ public class updateDay {
         return store;
     }
 
-    public static Store payEmployees(Store store){
+    public static int payEmployees(Store store){
 
         int fullTime = store.getFullTimePay();
         int partTime = store.getPartTimePay();
-        int cash = store.getCash();
+        int pay = store.getCash();
 
         int fte = 0, pte= 0;
 
@@ -68,16 +82,25 @@ public class updateDay {
                 pte++;
         }
 
-        cash -= ((fullTime * fte)+(partTime*pte));
-        store.setCash(cash);
+        pay = ((fullTime * fte)+(partTime*pte));
 
-        return store;
+
+        return pay;
     }
+
+    public static Store restock(Store store) {
+
+
+return store;
+    }
+
+
     public static Store pullItemsOffShelves(Store store){
+
         return store;
     }
 
-
+/*
     public static Store RegisterLogic(Store store) {
 
 
@@ -130,5 +153,4 @@ public class updateDay {
     }
 
 */
-
 }

@@ -263,7 +263,7 @@
                             </com.github.mikephil.charting.charts.LineChart>
 
                             <com.github.mikephil.charting.charts.BarChart
-                                android:id="@+id/chartBarTest"
+                                android:id="@+id/bcQ4"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 app:layout_constraintHeight_percent=".5"

@@ -1,6 +1,9 @@
 package com.example.grocerystore.Models;
 
-public class FoodItem {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class FoodItem implements Parcelable {
 
 
     private int department;
@@ -107,4 +110,49 @@ public class FoodItem {
     public void setStockTotal(int stockTotal) {
         this.stockTotal = stockTotal;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.department);
+        dest.writeString(this.itemName);
+        dest.writeFloat(this.unitPriceCustomer);
+        dest.writeFloat(this.unitPriceFarmer);
+        dest.writeFloat(this.totalPrice);
+        dest.writeInt(this.maxFOH);
+        dest.writeInt(this.maxBOH);
+        dest.writeInt(this.stockFOH);
+        dest.writeInt(this.stockBOH);
+        dest.writeInt(this.stockTotal);
+    }
+
+    protected FoodItem(Parcel in) {
+        this.department = in.readInt();
+        this.itemName = in.readString();
+        this.unitPriceCustomer = in.readFloat();
+        this.unitPriceFarmer = in.readFloat();
+        this.totalPrice = in.readFloat();
+        this.maxFOH = in.readInt();
+        this.maxBOH = in.readInt();
+        this.stockFOH = in.readInt();
+        this.stockBOH = in.readInt();
+        this.stockTotal = in.readInt();
+    }
+
+    public static final Parcelable.Creator<FoodItem> CREATOR = new Parcelable.Creator<FoodItem>() {
+        @Override
+        public FoodItem createFromParcel(Parcel source) {
+            return new FoodItem(source);
+        }
+
+        @Override
+        public FoodItem[] newArray(int size) {
+            return new FoodItem[size];
+        }
+    };
 }
