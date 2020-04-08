@@ -2,6 +2,7 @@ package com.example.grocerystore.HelperClasses;
 
 import android.graphics.Color;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -89,7 +90,7 @@ public class Charts {
         pieChart1.setData(data);
         pieChart1.setDrawSliceText(false);
 
-
+        pieChart1.spin( 1400,0,-90f, Easing.EaseInOutQuad);
 
         return pieChart1;
 
@@ -163,7 +164,7 @@ public class Charts {
         barDataSet.setBarBorderWidth(0.1f);
         //barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         barDataSet.setStackLabels(new String[]{
-                "BOH", "FOH", "Transit"
+                "FOH", "BOH", "Transit"
         });
 
         BarData barData = new BarData(barDataSet);//, barDataSet2, barDataSet3);

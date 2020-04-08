@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Dialogs.ManageRegisters"></activity>
+        <activity android:name=".Activities.DailyReport"></activity>
+        <activity android:name=".Dialogs.ManageRegisters" />
         <activity android:name=".Dialogs.CallIn" />
         <activity android:name=".Dialogs.Release" />
         <activity android:name=".Dialogs.Restock" />
@@ -22,8 +23,7 @@
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Dialogs.popupMenu"
-            android:label="Test Popup"
+            android:name=".Dialogs.referencePopup"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity android:name=".Activities.EmployeeTesting" />
         <activity

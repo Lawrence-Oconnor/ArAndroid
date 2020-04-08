@@ -7,24 +7,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.grocerystore.Dialogs.UserInputs;
+import com.example.grocerystore.Dialogs.referencePopup;
 import com.example.grocerystore.HelperClasses.Charts;
+import com.example.grocerystore.Models.Employee;
+import com.example.grocerystore.Models.FoodItem;
+import com.example.grocerystore.Models.Store;
 import com.example.grocerystore.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Historical extends AppCompatActivity implements View.OnClickListener {
 
     Button userInput;
+    TextView tvDay;
+    TextView tvCash;
+    ImageButton btnInfo;
+
 
     //Quadrant 1
     PieChart pieChartQ1A;
@@ -79,6 +90,12 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     ArrayList<Integer> statusColors;
 
 
+
+    ArrayList<Employee> employees;
+    ArrayList<FoodItem> items;
+
+    Store day;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,10 +112,49 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         quadrant4();
 
 
+        Bundle b = this.getIntent().getExtras();
+         if (b == null);
+        {
+            //this means we are on the first day
+            initializeDay();
 
-        //unwrap bundle that had the day
 
-        //get data with the day
+        }
+
+        if (b != null)
+        {
+            day = b.getParcelable("DayObj");
+
+        }
+
+        DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+        int cash = day.getCash();
+
+        //tv9.setText(getString(R.string.cashtx, cash));
+        tvDay.setText("Day "+ day.getStoreDay());
+        tvCash.setText("" + formatter.format(day.getCash()));
+
+
+
+    }
+
+
+    private void initializeDay() {
+
+        //fills Array with Employees
+        initializeEmployees();
+        //fills array of with current stock of food
+        initializeStock();
+
+
+        //TODO
+        //need to increment the day on refresh
+        //initializing a day with the default values, starter array of employees, departments and foods
+        day = new Store(1,10000,12,12,10,1,100, 250, departments,employees,items);
+
+
+
     }
     private void quadrant1() {
 
@@ -239,6 +295,7 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         pieChartQ4B = Charts.pieChart(pieChartQ4B, foods, foodColors);
 
 
+
         pieChartQ4C = (PieChart) findViewById(R.id.pcQ4C);
         pieChartQ4C = Charts.pieChart(pieChartQ4C, foods, foodColors);
 
@@ -289,6 +346,11 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         stockColors = new ArrayList<>();
         costColors  = new ArrayList<>();
         statusColors = new ArrayList<>();
+
+        tvDay = findViewById(R.id.tvDay);
+        tvCash = findViewById(R.id.tvCash2);
+        btnInfo = findViewById(R.id.btnInfo);
+        btnInfo.setOnClickListener(this);
 
         stockLabels.add("FOH");
         stockLabels.add("BOH");
@@ -390,6 +452,34 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     }
 
 
+    private void initializeEmployees() {
+
+        employees = new ArrayList<>();
+
+        for(int i=0; i< 10; i++)
+        {
+            employees.add(new Employee("Employee",i+1,true,45.0,1,false, false));
+            //use String temp = new String(departments.get(1)); to access emplyee dept string
+        }
+    }
+    private void initializeStock() {
+        items = new ArrayList<>();
+
+        int sampleInitial =150;
+        float priceCustomer =0.99f, priceFarmer= 0.50f, totalPrice = 148.50f;
+
+        items.add(new FoodItem(1, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(1, "PR" , totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(2, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(2, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(3, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(3, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(4, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(4, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+
+    }
+
+
     private void setupView() {
         userInput = findViewById(R.id.btnInputs);
         userInput.setOnClickListener(this);
@@ -397,8 +487,28 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        //Toast.makeText(getApplicationContext(),"Testing Button", Toast.LENGTH_SHORT).show();
-        Intent intent5 = new Intent(this, UserInputs.class);
-        startActivity(intent5);
+          //Toast.makeText(getApplicationContext(),"Testing Button", Toast.LENGTH_SHORT).show();
+
+        switch (v.getId()) {
+
+            case R.id.btnInputs:
+                Intent i = new Intent();
+                Bundle b = new Bundle();
+                b.putParcelable("DayObj", day);
+                i.putExtras(b);
+                i.setClass(getApplicationContext(), UserInputs.class);
+                startActivity(i);
+
+                break;
+
+            case R.id.btnInfo:
+                Intent c = new Intent();
+                c.setClass(getApplicationContext(), referencePopup.class);
+                startActivity(c);
+                break;
+
+            default:
+                break;
+        }
     }
 }

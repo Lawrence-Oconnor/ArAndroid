@@ -26,6 +26,7 @@
     <string name="tv_Storage">Average Storage Quantities </string>
     <string name="tv_Expired">Average Expired Items</string>
 
+    <string name="btn_decisions">MAKE DECISIONS</string>
 
 
     <string name="tv_Status">How Many Employees are Active, Idle and Offsite?</string>
@@ -51,5 +52,9 @@
 
     <string name="tv_AvgLeaving">Average Items Leaving by shift</string>
 
+    <string name="btn_End">END EXPERIMENT</string>
+    <string name="btn_Continue">CONTINUE</string>
+
+    <string name="cashtx">Cash :</string>
 
 </resources>
