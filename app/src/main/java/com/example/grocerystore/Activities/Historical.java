@@ -12,6 +12,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.grocerystore.Dialogs.PrevReport;
 import com.example.grocerystore.Dialogs.UserInputs;
 import com.example.grocerystore.Dialogs.referencePopup;
 import com.example.grocerystore.HelperClasses.Charts;
@@ -35,6 +36,8 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     TextView tvDay;
     TextView tvCash;
     ImageButton btnInfo;
+    ImageButton btnReport;
+
 
 
     //Quadrant 1
@@ -95,6 +98,9 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     ArrayList<FoodItem> items;
 
     Store day;
+    Store dayCopy;
+
+    float[] prevVals = {0,0,0,0,0,0,0,0,0,0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,9 +130,11 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         if (b != null)
         {
             day = b.getParcelable("DayObj");
+            prevVals = b.getFloatArray("prev");
+
 
         }
-
+        dayCopy = new Store(day);
         DecimalFormat formatter = new DecimalFormat("#,###.00");
 
         int cash = day.getCash();
@@ -151,7 +159,7 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         //TODO
         //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
-        day = new Store(1,10000,12,12,10,1,100, 250, departments,employees,items);
+        day = new Store(1,10000,12,12,10,0,100, 250, departments,employees,items, 0);
 
 
 
@@ -352,13 +360,18 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         btnInfo = findViewById(R.id.btnInfo);
         btnInfo.setOnClickListener(this);
 
+        btnReport = findViewById(R.id.btnReport);
+        btnReport.setOnClickListener(this);
+
         stockLabels.add("FOH");
         stockLabels.add("BOH");
         stockLabels.add("EMPTY");
 
+
+        statusLabels.add("Active");
         statusLabels.add("OffSite");
         statusLabels.add("Idle");
-        statusLabels.add("Active");
+
 
 
         costLabels.add("Delivery");
@@ -367,14 +380,15 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         costLabels.add("Product Costs");
         costLabels.add("Inventory Penalty");
 
+
+        foods.add("Cheese");
+        foods.add("Milk");
+        foods.add("Cereal");
+        foods.add("Cookies");
+        foods.add("Pizza");
+        foods.add("Dessert");
         foods.add("Apples");
         foods.add("Bananas");
-        foods.add("Eggs");
-        foods.add("Milk");
-        foods.add("Pizza");
-        foods.add("Cookies");
-        foods.add("Cereal");
-        foods.add("Dessert");
 
         departments.add("Produce");
         departments.add( "Dairy" );
@@ -388,8 +402,8 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         shifts.add("4 PM - 8 PM ");
 
          statusColors.add(ContextCompat.getColor(this,R.color.active));
-         statusColors.add(ContextCompat.getColor(this,R.color.idle));
          statusColors.add(ContextCompat.getColor(this,R.color.offsite));
+         statusColors.add(ContextCompat.getColor(this,R.color.idle));
 
          deptColors .add(ContextCompat.getColor(this,R.color.produce));
          deptColors.add(ContextCompat.getColor(this,R.color.dairy));
@@ -398,18 +412,20 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
          deptColors.add(ContextCompat.getColor(this,R.color.registers));
 
 
-         foodColors.add(ContextCompat.getColor(this,R.color.apples));
-         foodColors.add(ContextCompat.getColor(this,R.color.banana));
+
          foodColors.add(ContextCompat.getColor(this,R.color.eggs));
          foodColors.add(ContextCompat.getColor(this,R.color.milk));
-         foodColors.add(ContextCompat.getColor(this,R.color.pizza));
-         foodColors.add(ContextCompat.getColor(this,R.color.cookies));
-         foodColors.add(ContextCompat.getColor(this,R.color.cereal));
-         foodColors.add(ContextCompat.getColor(this,R.color.desert));
 
-         stockColors.add(ContextCompat.getColor(this,R.color.FOH));
-         stockColors.add(ContextCompat.getColor(this,R.color.BOH));
-         stockColors.add(ContextCompat.getColor(this, R.color.EMPTY));
+        foodColors.add(ContextCompat.getColor(this,R.color.cereal));
+        foodColors.add(ContextCompat.getColor(this,R.color.cookies));
+        foodColors.add(ContextCompat.getColor(this,R.color.pizza));
+        foodColors.add(ContextCompat.getColor(this,R.color.desert));
+        foodColors.add(ContextCompat.getColor(this,R.color.apples));
+        foodColors.add(ContextCompat.getColor(this,R.color.banana));
+
+         stockColors.add(ContextCompat.getColor(this,R.color.FOH2));
+         stockColors.add(ContextCompat.getColor(this,R.color.BOH2));
+         stockColors.add(ContextCompat.getColor(this, R.color.EMPTY2));
 
          costColors.add(ContextCompat.getColor(this,R.color.delivery));
          costColors.add(ContextCompat.getColor(this,R.color.expiration));
@@ -466,16 +482,16 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         items = new ArrayList<>();
 
         int sampleInitial =150;
-        float priceCustomer =0.99f, priceFarmer= 0.50f, totalPrice = 148.50f;
+        float priceCustomer =5.00f, priceFarmer= 0.50f, totalPrice = 7.0f;
 
-        items.add(new FoodItem(1, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(1, "PR" , totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(2, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(2, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(3, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(3, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(4, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
-        items.add(new FoodItem(4, "PR", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(1, "Cheese", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(1, "Milk" , totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(2, "Cereal", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(2, "Cookies", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(3, "Pizza", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(3, "Dessert", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(4, "Apples", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
+        items.add(new FoodItem(4, "Bananas", totalPrice, priceCustomer, priceFarmer, 100,100, 100, 100, 200));
 
     }
 
@@ -506,6 +522,18 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
                 c.setClass(getApplicationContext(), referencePopup.class);
                 startActivity(c);
                 break;
+
+            case R.id.btnReport:
+                Intent x = new Intent();
+                Bundle y = new Bundle();
+                y.putParcelable("DayObj", dayCopy);
+                y.putFloatArray("prev", prevVals);
+                x.putExtras(y);
+                x.setClass(getApplicationContext(), PrevReport.class);// replace with new class
+                startActivity(x);
+
+                break;
+
 
             default:
                 break;

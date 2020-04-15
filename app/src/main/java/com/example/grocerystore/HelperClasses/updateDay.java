@@ -88,17 +88,84 @@ public class updateDay {
         return pay;
     }
 
-    public static Store restock(Store store) {
+    public static Store restock(Store day, float[]shift) {
+        ArrayList<FoodItem> foods;
+        ArrayList <Employee>employees;
+        int dept = 0;
+        foods = day.getFoodItems();
+          for (FoodItem f : foods) {
 
+            dept = f.getDepartment();
+            if (shift[dept]<1)
+                continue;
 
-return store;
+            if (f.getStockFOH() < f.getMaxFOH())
+                if (f.getStockBOH()>0)
+                {
+                    int rs = f.getMaxFOH()-f.getStockFOH();
+                    //the amount we need to fill FOH
+
+                    if (f.getStockBOH()< rs)
+                    {
+                        f.setStockFOH(f.getStockFOH()+f.getStockBOH());
+                        f.setStockBOH(0);
+                    }
+
+                    if (f.getStockBOH()>= rs)
+                    {
+                        f.setStockFOH(f.getStockFOH()+rs);
+                        f.setStockBOH(f.getStockBOH()-rs);
+                    }
+
+                }
+
+        }
+        day.setFoodItems(foods);
+
+    return day;
     }
 
 
-    public static Store pullItemsOffShelves(Store store){
+    public static Store makeDeliveries(Store day, float[] quantities, float[] shipping) {
+        //loop through quants array - if not equal to zero
+        int cash = day.getCash();
+        ArrayList<FoodItem> foods;
+        foods = day.getFoodItems();
+        int diff = 0;
+        for(int i = 0; i< 8 ;i++)
+        {
+            diff = 0;
+            if(quantities[i]== 0)
+                continue;
+            cash -= (quantities[i] *25);
+            cash -= (shipping[i] == 1.0? 250 : 100);
+            if(((foods.get(i).getStockBOH())+ (quantities[i]*25)) > foods.get(i).getMaxBOH())
+            {
+                 diff = foods.get(i).getMaxBOH()-foods.get(i).getStockBOH();
+                foods.get(i).setStockBOH(foods.get(i).getMaxBOH());
+            }
 
-        return store;
+            if(((foods.get(i).getStockBOH())+ (quantities[i]*25)) <= foods.get(i).getMaxBOH())
+            {
+                diff = foods.get(i).getStockBOH() + (int)(quantities[i]*25) ;
+                foods.get(i).setStockBOH(diff);
+            }
+
+
+
+        }
+
+        //get the food from the foods array
+        //if stock boh + (quantities[i]*25) > max stock , stock boh = max stock
+        //calculate the amount lost and put it somewhere
+
+        day.setCash(cash);
+        day.setShpCost(diff);
+        return day;
     }
+
+
+
 
 /*
     public static Store RegisterLogic(Store store) {

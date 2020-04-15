@@ -115,7 +115,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         //TODO
         //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
-        day = new Store(1,1,100,12,10,20,100, 250, departments,employees,items);
+        day = new Store(1,1,100,12,10,20,100, 250, departments,employees,items, 0);
 
         tvDay.setText("DAY :" + day.getStoreDay());
 

@@ -7,8 +7,8 @@
     tools:context=".Activities.Historical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="1278dp"
-        android:layout_height="798dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -793,6 +793,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/info" />
+
+        <ImageButton
+            android:id="@+id/btnReport"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="776dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="4dp"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/report" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
