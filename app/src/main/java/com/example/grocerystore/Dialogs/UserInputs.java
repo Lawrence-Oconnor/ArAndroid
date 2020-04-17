@@ -19,6 +19,7 @@ import com.example.grocerystore.Models.Employee;
 import com.example.grocerystore.Models.FoodItem;
 import com.example.grocerystore.Models.Store;
 import com.example.grocerystore.R;
+
 import android.view.View;
 
 import java.util.ArrayList;
@@ -52,12 +53,12 @@ public class UserInputs extends Activity implements View.OnClickListener {
     TextView S1E;
     TextView S1F;
 
-    int S1Produce =0;
+    int S1Produce = 0;
     int S1Dairy = 0;
-    int S1Dry =0;
-    int S1Frozen =0;
+    int S1Dry = 0;
+    int S1Frozen = 0;
 
-    int S1Registers =0;
+    int S1Registers = 0;
     int s1Total = 0;
 
     ImageButton S1M1;
@@ -73,7 +74,6 @@ public class UserInputs extends Activity implements View.OnClickListener {
     ImageButton S1P5;
 
 
-
     //shift 2
     TextView S2A;
     TextView S2B;
@@ -83,12 +83,12 @@ public class UserInputs extends Activity implements View.OnClickListener {
     TextView S2F;
 
 
-    int S2Produce =0;
+    int S2Produce = 0;
     int S2Dairy = 0;
-    int S2Dry =0;
-    int S2Frozen =0;
+    int S2Dry = 0;
+    int S2Frozen = 0;
 
-    int S2Registers =0;
+    int S2Registers = 0;
     int s2Total = 0;
 
     ImageButton S2M1;
@@ -103,7 +103,6 @@ public class UserInputs extends Activity implements View.OnClickListener {
     ImageButton S2P5;
 
 
-
     //shift 3
 
     TextView S3A;
@@ -113,20 +112,20 @@ public class UserInputs extends Activity implements View.OnClickListener {
     TextView S3E;
     TextView S3F;
 
-    int S3Produce =0;
+    int S3Produce = 0;
     int S3Dairy = 0;
-    int S3Dry =0;
-    int S3Frozen =0;
+    int S3Dry = 0;
+    int S3Frozen = 0;
 
-    int S3Registers =0;
+    int S3Registers = 0;
     int s3Total = 0;
 
-    float[] S1 = {0,0,0,0,0,0};
-    float[] S2 = {0,0,0,0,0,0};
-    float[] S3 = {0,0,0,0,0,0};
+    float[] S1 = {0, 0, 0, 0, 0, 0};
+    float[] S2 = {0, 0, 0, 0, 0, 0};
+    float[] S3 = {0, 0, 0, 0, 0, 0};
 
-    float[] quantities = {0,0,0,0,0,0,0,0};
-    float[] shipping = {0,0,0,0,0,0,0,0};
+    float[] quantities = {0, 0, 0, 0, 0, 0, 0, 0};
+    float[] shipping = {0, 0, 0, 0, 0, 0, 0, 0};
 
     ImageButton S3M1;
     ImageButton S3P1;
@@ -140,11 +139,11 @@ public class UserInputs extends Activity implements View.OnClickListener {
     ImageButton S3P5;
 
 
-
     Button btnFinal;
-    ArrayList departments,employees,items;
+    ArrayList departments, employees, items;
     Store day;
     int minteger1 = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,20 +153,18 @@ public class UserInputs extends Activity implements View.OnClickListener {
         btnFinal = (Button) findViewById(R.id.btnFinal);
 
         Bundle b = this.getIntent().getExtras();
-        if (b == null);
+        if (b == null) ;
         {
-           // Toast.makeText(getApplicationContext(), "Store Object Error", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getApplicationContext(), "Store Object Error", Toast.LENGTH_SHORT).show();
             //this means we are on the first day
 
 
         }
 
-        if (b != null)
-        {
+        if (b != null) {
             day = b.getParcelable("DayObj");
             //Toast.makeText(getApplicationContext(),"B is not NULL", Toast.LENGTH_SHORT).show();
         }
-
 
 
         btnFinal.setOnClickListener(new View.OnClickListener() {
@@ -193,8 +190,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
         });
     }
 
-    private void setArrays()
-    {
+    private void setArrays() {
         S1[0] = s1Total;
         S1[1] = S1Produce;
         S1[2] = S1Dairy;
@@ -218,45 +214,46 @@ public class UserInputs extends Activity implements View.OnClickListener {
         S3[5] = S3Registers;
 
         int a = 0;
-        if(et1.getText().toString().length() > 0)
-        quantities[0]= a+ Integer.parseInt(et1.getText().toString());
-        if(et2.getText().toString().length() > 0)
-        quantities[1]= a+ Integer.parseInt(et2.getText().toString());
-        if(et3.getText().toString().length() > 0)
-        quantities[2]= a+ Integer.parseInt(et3.getText().toString());
-        if(et4.getText().toString().length() > 0)
-        quantities[3]= a+ Integer.parseInt(et4.getText().toString());
-        if(et5.getText().toString().length() > 0)
-        quantities[4]= a+ Integer.parseInt(et5.getText().toString());
-        if(et6.getText().toString().length() > 0)
-        quantities[5]= a+  Integer.parseInt(et6.getText().toString());
-        if(et7.getText().toString().length() > 0)
-        quantities[6]= a+  Integer.parseInt(et7.getText().toString());
-        if(et8.getText().toString().length() > 0)
-        quantities[7]= a+  Integer.parseInt(et8.getText().toString());
+        if (et1.getText().toString().length() > 0)
+            quantities[0] = a + Integer.parseInt(et1.getText().toString());
+        if (et2.getText().toString().length() > 0)
+            quantities[1] = a + Integer.parseInt(et2.getText().toString());
+        if (et3.getText().toString().length() > 0)
+            quantities[2] = a + Integer.parseInt(et3.getText().toString());
+        if (et4.getText().toString().length() > 0)
+            quantities[3] = a + Integer.parseInt(et4.getText().toString());
+        if (et5.getText().toString().length() > 0)
+            quantities[4] = a + Integer.parseInt(et5.getText().toString());
+        if (et6.getText().toString().length() > 0)
+            quantities[5] = a + Integer.parseInt(et6.getText().toString());
+        if (et7.getText().toString().length() > 0)
+            quantities[6] = a + Integer.parseInt(et7.getText().toString());
+        if (et8.getText().toString().length() > 0)
+            quantities[7] = a + Integer.parseInt(et8.getText().toString());
 
-        if(ch1.isChecked())
+        if (ch1.isChecked())
             shipping[0] = 1;
 
-        if(ch2.isChecked())
+        if (ch2.isChecked())
             shipping[1] = 1;
-        if(ch3.isChecked())
+        if (ch3.isChecked())
             shipping[2] = 1;
-        if(ch4.isChecked())
+        if (ch4.isChecked())
             shipping[3] = 1;
-        if(ch5.isChecked())
+        if (ch5.isChecked())
             shipping[4] = 1;
-        if(ch6.isChecked())
+        if (ch6.isChecked())
             shipping[5] = 1;
-        if(ch7.isChecked())
+        if (ch7.isChecked())
             shipping[6] = 1;
-        if(ch8.isChecked())
+        if (ch8.isChecked())
             shipping[7] = 1;
         // Toast.makeText(getApplicationContext(), "quantities" + quantities[7], Toast.LENGTH_SHORT).show();
-     //   shipping =
+        //   shipping =
 
 
     }
+
     private void setupView() {
 
         S1M1 = findViewById(R.id.S1M1);
@@ -399,8 +396,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s1P:
-                if (s1Total < 10)
-                {
+                if (s1Total < 10) {
                     S1Dairy += 1;
                     s1Total += 1;
                     S1B.setText("" + S1Dairy);
@@ -416,8 +412,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s1P2:
-                if (s1Total < 10)
-                {
+                if (s1Total < 10) {
                     S1Dry += 1;
                     s1Total += 1;
                     S1C.setText("" + S1Dry);
@@ -433,8 +428,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s1P5:
-                if (s1Total < 10)
-                {
+                if (s1Total < 10) {
                     S1Frozen += 1;
                     s1Total += 1;
                     S1F.setText("" + S1Frozen);
@@ -451,8 +445,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s1P3:
-                if ((s1Total < 10)&&(S1Registers <3))
-                {
+                if ((s1Total < 10) && (S1Registers < 3)) {
                     S1Registers += 1;
                     s1Total += 1;
                     S1D.setText("" + S1Registers);
@@ -486,8 +479,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s2P:
-                if (s2Total < 10)
-                {
+                if (s2Total < 10) {
                     S2Dairy += 1;
                     s2Total += 1;
                     S2B.setText("" + S2Dairy);
@@ -504,8 +496,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s2P2:
-                if (s2Total < 10)
-                {
+                if (s2Total < 10) {
                     S2Dry += 1;
                     s2Total += 1;
                     S2C.setText("" + S2Dry);
@@ -521,8 +512,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s2P5:
-                if (s1Total < 10)
-                {
+                if (s1Total < 10) {
                     S2Frozen += 1;
                     s2Total += 1;
                     S2F.setText("" + S2Frozen);
@@ -538,8 +528,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s2P3:
-                if ((s2Total < 10)&&(S2Registers <3))
-                {
+                if ((s2Total < 10) && (S2Registers < 3)) {
                     S2Registers += 1;
                     s2Total += 1;
                     S2D.setText("" + S2Registers);
@@ -574,8 +563,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s3P:
-                if (s3Total < 10)
-                {
+                if (s3Total < 10) {
                     S3Dairy += 1;
                     s3Total += 1;
                     S3B.setText("" + S3Dairy);
@@ -591,8 +579,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s3P2:
-                if (s3Total < 10)
-                {
+                if (s3Total < 10) {
                     S3Dry += 1;
                     s3Total += 1;
                     S3C.setText("" + S3Dry);
@@ -608,8 +595,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s3P4:
-                if (s3Total < 10)
-                {
+                if (s3Total < 10) {
                     S3Frozen += 1;
                     s3Total += 1;
                     S3F.setText("" + S3Frozen);
@@ -626,8 +612,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.s3P3:
-                if ((s3Total < 10)&&(S3Registers <3))
-                {
+                if ((s3Total < 10) && (S3Registers < 3)) {
                     S3Registers += 1;
                     s3Total += 1;
                     S3D.setText("" + S3Registers);
@@ -651,20 +636,20 @@ public class UserInputs extends Activity implements View.OnClickListener {
 
         if (s1Total < 10)
             S1E.setTextColor(getResources().getColor(R.color.secondary));
-        if (s2Total <10)
+        if (s2Total < 10)
             S2E.setTextColor(getResources().getColor(R.color.secondary));
         if (s3Total < 10)
             S3E.setTextColor(getResources().getColor(R.color.secondary));
 
 
-       if(S1Registers == 3) S1D.setTextColor(getResources().getColor(R.color.redA));
-        if(S1Registers < 3) S1D.setTextColor(getResources().getColor(R.color.secondary));
+        if (S1Registers == 3) S1D.setTextColor(getResources().getColor(R.color.redA));
+        if (S1Registers < 3) S1D.setTextColor(getResources().getColor(R.color.secondary));
 
-        if(S2Registers == 3) S2D.setTextColor(getResources().getColor(R.color.redA));
-        if(S2Registers < 3) S2D.setTextColor(getResources().getColor(R.color.secondary));
+        if (S2Registers == 3) S2D.setTextColor(getResources().getColor(R.color.redA));
+        if (S2Registers < 3) S2D.setTextColor(getResources().getColor(R.color.secondary));
 
-        if(S3Registers == 3) S3D.setTextColor(getResources().getColor(R.color.redA));
-        if(S3Registers < 3) S3D.setTextColor(getResources().getColor(R.color.secondary));
+        if (S3Registers == 3) S3D.setTextColor(getResources().getColor(R.color.redA));
+        if (S3Registers < 3) S3D.setTextColor(getResources().getColor(R.color.secondary));
 
 
     }

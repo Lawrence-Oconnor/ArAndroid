@@ -19,7 +19,7 @@ public class Store implements Parcelable {
     private float regUT;
 
 
-    private ArrayList <String> departments;
+    private ArrayList<String> departments;
     private ArrayList<Employee> employees;
     private ArrayList<FoodItem> foodItems;
 
@@ -141,12 +141,11 @@ public class Store implements Parcelable {
         this.expShpCost = expShpCost;
     }
 
-    public int getFOHStock()
-    {
+    public int getFOHStock() {
         int FOHTotal;
-        FOHTotal =0;
+        FOHTotal = 0;
 
-        for (FoodItem v: foodItems) {
+        for (FoodItem v : foodItems) {
             FOHTotal += v.getStockFOH();
         }
 
@@ -154,28 +153,27 @@ public class Store implements Parcelable {
 
     }
 
-    public int getBOHStock()
-    {
+    public int getBOHStock() {
         int BOHTotal;
-        BOHTotal =0;
+        BOHTotal = 0;
 
-        for (FoodItem v: foodItems) {
+        for (FoodItem v : foodItems) {
             BOHTotal += v.getStockBOH();
         }
 
         return BOHTotal;
     }
 
-    public int getEmployeesRegisters()
-    {
+    public int getEmployeesRegisters() {
         int reg = 0;
-        for(Employee v: employees)
+        for (Employee v : employees)
             if (v.getDepartment() == 5)
                 reg++;
 
-            return reg;
+        return reg;
 
     }
+
     @Override
     public int describeContents() {
         return 0;

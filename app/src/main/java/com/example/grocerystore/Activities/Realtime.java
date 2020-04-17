@@ -37,21 +37,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 
-public class Realtime extends AppCompatActivity implements View.OnClickListener{
+public class Realtime extends AppCompatActivity implements View.OnClickListener {
 
 //TODO
     /*
-    *Game Timer - implement the timer in a thread then do specifics later
-    *Refresh method to manage charts
-    * create update method to update the charts on refresh
-    *hook the charts to refresh timer
-    * \
-    * All of this code should be moved to a severate activity -
-    * main activity will keep track of day in a loop - however many iterations
-    * and launch the realtime activity with the day number to get the correct data
-    * make a blank day in the main activity - in the realtime activity return the day obj
-    *
-    * */
+     *Game Timer - implement the timer in a thread then do specifics later
+     *Refresh method to manage charts
+     * create update method to update the charts on refresh
+     *hook the charts to refresh timer
+     * \
+     * All of this code should be moved to a severate activity -
+     * main activity will keep track of day in a loop - however many iterations
+     * and launch the realtime activity with the day number to get the correct data
+     * make a blank day in the main activity - in the realtime activity return the day obj
+     *
+     * */
 
     Thread sample;
 
@@ -77,8 +77,8 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
 
 
     ArrayList<Employee> employees;
-    ArrayList <String> departments;
-    ArrayList <String> foods;
+    ArrayList<String> departments;
+    ArrayList<String> foods;
     ArrayList<FoodItem> items;
 
 
@@ -115,7 +115,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         //TODO
         //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
-        day = new Store(1,1,100,12,10,20,100, 250, departments,employees,items, 0);
+        day = new Store(1, 1, 100, 12, 10, 20, 100, 250, departments, employees, items, 0);
 
         tvDay.setText("DAY :" + day.getStoreDay());
 
@@ -167,8 +167,8 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         foods = new ArrayList<>();
         items = new ArrayList<>();
 
-        int sampleInitial =150;
-        float priceCustomer =0.99f, priceFarmer= 0.50f, totalPrice = 148.50f;
+        int sampleInitial = 150;
+        float priceCustomer = 0.99f, priceFarmer = 0.50f, totalPrice = 148.50f;
 /*
         items.add(new FoodItem("Produce", "PR", "Apples", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
         items.add(new FoodItem("Produce", "PR", "Bananas", "A2", "PR-A2", sampleInitial, priceCustomer, priceFarmer, totalPrice));
@@ -188,11 +188,11 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         foods.add("Milk");
         foods.add("Eggs");
 
-        departments.add( "Registers");
+        departments.add("Registers");
         departments.add("Produce");
-        departments.add( "Dry Goods");
-        departments.add( "Frozen");
-        departments.add( "Dairy" );
+        departments.add("Dry Goods");
+        departments.add("Frozen");
+        departments.add("Dairy");
     }
 
 
@@ -200,15 +200,14 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
 
         employees = new ArrayList<>();
 
-        for(int i=0; i< 10; i++)
-        {
-            employees.add(new Employee("Employee",i+1,true,45.0,1,false, false));
+        for (int i = 0; i < 10; i++) {
+            employees.add(new Employee("Employee", i + 1, true, 45.0, 1, false, false));
             //use String temp = new String(departments.get(1)); to access emplyee dept string
         }
     }
 
 
-    private void refreshCharts(){
+    private void refreshCharts() {
 
     }
 
@@ -219,7 +218,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
 
     private void lineChartTest() {
 
-        lineChart = (LineChart)findViewById(R.id.Q2LineChart);
+        lineChart = (LineChart) findViewById(R.id.Q2LineChart);
 
         List<Entry> entries1 = new ArrayList<>();
         entries1.add(new Entry(0f, 34f));
@@ -231,7 +230,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         dataset1.setAxisDependency(YAxis.AxisDependency.LEFT);
 
 
-        List<ILineDataSet>datasets = new ArrayList<ILineDataSet>();
+        List<ILineDataSet> datasets = new ArrayList<ILineDataSet>();
         datasets.add(dataset1);
 
         LineData data = new LineData(datasets);
@@ -241,7 +240,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void barChartTest() {
-        barChart = (BarChart)findViewById(R.id.bcQ2A);
+        barChart = (BarChart) findViewById(R.id.bcQ2A);
 
 
         BarDataSet barDataSet = new BarDataSet(getData(), "TestData");
@@ -261,7 +260,8 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         barChart.invalidate();
 
     }
-    private ArrayList getData(){
+
+    private ArrayList getData() {
         ArrayList<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(0f, 30f));
         entries.add(new BarEntry(1f, 80f));
@@ -278,21 +278,21 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
         pieChart1 = (PieChart) findViewById(R.id.chart1Pie);
         pieChart1.setUsePercentValues(true);
         pieChart1.getDescription().setEnabled(false);
-        pieChart1.setExtraOffsets(0,0,0,0);
+        pieChart1.setExtraOffsets(0, 0, 0, 0);
 
         pieChart1.setDragDecelerationFrictionCoef(0.95f);
 
         pieChart1.setDrawHoleEnabled(false);
-       // pieChart1.setHoleColor(Color.WHITE);
-       // pieChart1.setTransparentCircleRadius(61f);
+        // pieChart1.setHoleColor(Color.WHITE);
+        // pieChart1.setTransparentCircleRadius(61f);
 
         ArrayList<PieEntry> values = new ArrayList<>();
 
-        values.add(new PieEntry(60f,"1"));
-        values.add(new PieEntry(10,"2"));
-        values.add(new PieEntry(5f,"3"));
-        values.add(new PieEntry(7f,"4"));
-        values.add(new PieEntry(18f,"5"));
+        values.add(new PieEntry(60f, "1"));
+        values.add(new PieEntry(10, "2"));
+        values.add(new PieEntry(5f, "3"));
+        values.add(new PieEntry(7f, "4"));
+        values.add(new PieEntry(18f, "5"));
 
         PieDataSet dataset = new PieDataSet(values, "TEST VALUES");
         dataset.setSliceSpace(3f);
@@ -306,7 +306,6 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
 
         pieChart1.getLegend().setEnabled(false);
         pieChart1.setData(data);
-
 
 
     }
@@ -333,7 +332,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         //implement switch for buttons
         //Launches fragment in screen
-        switch (v.getId()){
+        switch (v.getId()) {
 /*
             case R.id.btnRestock:
                 Toast.makeText(getApplicationContext(),"Testing Button", Toast.LENGTH_SHORT).show();

@@ -43,7 +43,7 @@ public class StartScreen extends AppCompatActivity {
         realtime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Realtime Treatment",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Realtime Treatment", Toast.LENGTH_SHORT).show();
 //
                 Intent intent = new Intent(getApplicationContext(), Realtime.class);
                 startActivity(intent);

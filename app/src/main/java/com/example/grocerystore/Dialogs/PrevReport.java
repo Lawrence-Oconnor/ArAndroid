@@ -29,7 +29,7 @@ public class PrevReport extends Activity {
     int expiredTotal = 0;
     int pay = 0;
 
-    float[] prevVals = {0,0,0,0,0,0,0,0,0,0};
+    float[] prevVals = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +40,19 @@ public class PrevReport extends Activity {
         title = findViewById(R.id.textView36);
 
 
-
         Bundle b = this.getIntent().getExtras();
 
         newDay = b.getParcelable("DayObj");
         prevVals = b.getFloatArray("prev");
 
 
-        if (newDay.getStoreDay() == 1);
+        if (newDay.getStoreDay() == 1) ;
         {
 
             title.setText("No Previous Report Available");
 
         }
-        if (newDay.getStoreDay() >1) {
+        if (newDay.getStoreDay() > 1) {
             title.setText("Previous End of Day Report");
 
             setupView();
@@ -77,8 +76,6 @@ public class PrevReport extends Activity {
         btn11 = findViewById(R.id.tvDP11);
 
 
-
-
     }
 
     private void setTextViews() {
@@ -88,11 +85,11 @@ public class PrevReport extends Activity {
         btn2.setText("You have $" + formatter.format(newDay.getCash()) + "\n Net Change: " + formatter.format(prevVals[8]));
         btn3.setText("Total Front of House Stock: " + newDay.getFOHStock());
         btn4.setText("Total Back of House Stock: " + newDay.getBOHStock());
-        float solttot = prevVals[1]+prevVals[2]+prevVals[3];
-        btn5.setText("You sold " + solttot +" items" + "\n Shift 1:\t" + (int)prevVals[1] +"\t Shift 2: " + (int)prevVals[2] + "\t Shift 3: " + (int)prevVals[3]);
-        btn6.setText("Items left at register \n Shift 1:" + (int)prevVals[4] + "\t Shift 2: " + (int)prevVals[5] + "\t Shift 3: " + (int)prevVals[6]);
-        btn7.setText((int)prevVals[7] + " foods expired");
-        btn8.setText("$ " + formatter.format((int)prevVals[9]) +" Spent on Employee Salaries");
+        float solttot = prevVals[1] + prevVals[2] + prevVals[3];
+        btn5.setText("You sold " + solttot + " items" + "\n Shift 1:\t" + (int) prevVals[1] + "\t Shift 2: " + (int) prevVals[2] + "\t Shift 3: " + (int) prevVals[3]);
+        btn6.setText("Items left at register \n Shift 1:" + (int) prevVals[4] + "\t Shift 2: " + (int) prevVals[5] + "\t Shift 3: " + (int) prevVals[6]);
+        btn7.setText((int) prevVals[7] + " foods expired");
+        btn8.setText("$ " + formatter.format((int) prevVals[9]) + " Spent on Employee Salaries");
 
     }
 
