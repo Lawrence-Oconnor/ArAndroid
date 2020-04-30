@@ -57,4 +57,10 @@
 
     <string name="cashtx">Cash :</string>
 
+    <string name="scheduling">Employee Scheduling </string>
+    <string name="scheduling2">Please assign a number to a department to represent the total number of employees per shift. You can assign up to 10 employees in total per shift</string>
+
+    <string name="orderItems">Order Items </string>
+    <string name="orderItems2">Please assign a number to represent the amount of product you want to restock and select the type for delivery. Each batch is 25 units. Cost per batch $25.00 </string>
+
 </resources>

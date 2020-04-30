@@ -17,14 +17,13 @@ public class EmployeeTesting extends AppCompatActivity {
     }
 
 
-    public void employeeTest( ){
+    public void employeeTest() {
 
         String name;
         String employerNumber;
         boolean idle;
         double stockTime;
         int temp;
-
 
 
         //create list of employees on initialization

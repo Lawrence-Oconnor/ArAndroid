@@ -16,8 +16,10 @@ public class Store implements Parcelable {
     private int shift;
     private int shpCost;
     private int expShpCost;
+    private float regUT;
 
-    private ArrayList <String> departments;
+
+    private ArrayList<String> departments;
     private ArrayList<Employee> employees;
     private ArrayList<FoodItem> foodItems;
 
@@ -33,9 +35,10 @@ public class Store implements Parcelable {
         this.departments = other.departments;
         this.employees = other.employees;
         this.foodItems = other.foodItems;
+        this.regUT = other.regUT;
     }
 
-    public Store(int storeDay, int cash, int dayHours, int fullTimePay, int partTimePay, int shift, int shpCost, int expShpCost, ArrayList<String> departments, ArrayList<Employee> employees, ArrayList<FoodItem> foodItems) {
+    public Store(int storeDay, int cash, int dayHours, int fullTimePay, int partTimePay, int shift, int shpCost, int expShpCost, ArrayList<String> departments, ArrayList<Employee> employees, ArrayList<FoodItem> foodItems, float regUT) {
         this.storeDay = storeDay;
         this.cash = cash;
         this.dayHours = dayHours;
@@ -47,6 +50,7 @@ public class Store implements Parcelable {
         this.departments = departments;
         this.employees = employees;
         this.foodItems = foodItems;
+        this.regUT = regUT;
     }
 
     public int getShift() {
@@ -137,12 +141,11 @@ public class Store implements Parcelable {
         this.expShpCost = expShpCost;
     }
 
-    public int getFOHStock()
-    {
+    public int getFOHStock() {
         int FOHTotal;
-        FOHTotal =0;
+        FOHTotal = 0;
 
-        for (FoodItem v: foodItems) {
+        for (FoodItem v : foodItems) {
             FOHTotal += v.getStockFOH();
         }
 
@@ -150,16 +153,25 @@ public class Store implements Parcelable {
 
     }
 
-    public int getBOHStock()
-    {
+    public int getBOHStock() {
         int BOHTotal;
-        BOHTotal =0;
+        BOHTotal = 0;
 
-        for (FoodItem v: foodItems) {
+        for (FoodItem v : foodItems) {
             BOHTotal += v.getStockBOH();
         }
 
         return BOHTotal;
+    }
+
+    public int getEmployeesRegisters() {
+        int reg = 0;
+        for (Employee v : employees)
+            if (v.getDepartment() == 5)
+                reg++;
+
+        return reg;
+
     }
 
     @Override
@@ -196,6 +208,7 @@ public class Store implements Parcelable {
         in.readList(this.employees, Employee.class.getClassLoader());
         this.foodItems = new ArrayList<FoodItem>();
         in.readList(this.foodItems, FoodItem.class.getClassLoader());
+        this.regUT = in.readFloat();
     }
 
     public static final Creator<Store> CREATOR = new Creator<Store>() {
@@ -209,4 +222,12 @@ public class Store implements Parcelable {
             return new Store[size];
         }
     };
+
+    public float getRegUT() {
+        return regUT;
+    }
+
+    public void setRegUT(float regUT) {
+        this.regUT = regUT;
+    }
 }
