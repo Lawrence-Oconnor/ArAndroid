@@ -73,7 +73,6 @@ public class UserInputs extends Activity implements View.OnClickListener {
     ImageButton S1M5;
     ImageButton S1P5;
 
-
     //shift 2
     TextView S2A;
     TextView S2B;
@@ -157,7 +156,6 @@ public class UserInputs extends Activity implements View.OnClickListener {
         {
             // Toast.makeText(getApplicationContext(), "Store Object Error", Toast.LENGTH_SHORT).show();
             //this means we are on the first day
-
 
         }
 

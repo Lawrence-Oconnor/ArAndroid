@@ -23,6 +23,7 @@ public class DailyReport extends AppCompatActivity {
 
     Store day;
     Store newDay;
+
     TextView btnContinue;
     TextView btn1;
     TextView btn2;
@@ -35,29 +36,28 @@ public class DailyReport extends AppCompatActivity {
     TextView btn9;
     TextView btn10;
     TextView btn11;
+
     int expiredTotal = 0;
     int pay = 0;
     int netChange = 0;
+    int soldS1 = 0, soldS2 = 0, soldS3 = 0;
+    int leftS1 = 0, leftS2 = 0, leftS3 = 0;
+    boolean end;
+
     float[] S1 = {0, 0, 0, 0, 0, 0};
     float[] S2 = {0, 0, 0, 0, 0, 0};
     float[] S3 = {0, 0, 0, 0, 0, 0};
-
     float[] S1b = {0, 0, 0, 0, 0, 0};
     float[] S2b = {0, 0, 0, 0, 0, 0};
     float[] S3b = {0, 0, 0, 0, 0, 0};
-
     float[] prevVals = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
     float[] quantities = {0, 0, 0, 0, 0, 0, 0, 0};
     float[] shipping = {0, 0, 0, 0, 0, 0, 0, 0};
 
-    int soldS1 = 0, soldS2 = 0, soldS3 = 0;
-    int leftS1 = 0, leftS2 = 0, leftS3 = 0;
+
     ArrayList<Employee> S1Employees;
     ArrayList<Employee> S2Employees;
     ArrayList<Employee> S3Employees;
-
-    boolean end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,19 +78,16 @@ public class DailyReport extends AppCompatActivity {
             S1 = b.getFloatArray("S1");
             S2 = b.getFloatArray("S2");
             S3 = b.getFloatArray("S3");
-
             S1b = Arrays.copyOf(S1, 6);
             S2b = Arrays.copyOf(S2, 6);
             S3b = Arrays.copyOf(S3, 6);
             quantities = b.getFloatArray("quant");
             shipping = b.getFloatArray("ship");
-
             newDay = new Store(day);
         }
 
         initializeEmployees();
         end = false;
-
 
         setupView();
         runCalculations();
@@ -101,9 +98,7 @@ public class DailyReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 newDay.setStoreDay(newDay.getStoreDay() + 1);
-
                 Intent i = new Intent();
                 Bundle b = new Bundle();
                 b.putParcelable("DayObj", newDay);
@@ -185,12 +180,6 @@ public class DailyReport extends AppCompatActivity {
         btn7.setText(expiredTotal + " foods expired");
         btn8.setText("$ " + formatter.format(pay) + " Spent on Employee Salaries");
 
-        // btn9.setText("Reigster Utilization");//calculations
-
-        //btn10.setText("XXX");
-        //btn11.setText("XXX");
-
-
         prevVals[0] = solttot;
         prevVals[1] = soldS1;
         prevVals[2] = soldS2;
@@ -234,7 +223,7 @@ public class DailyReport extends AppCompatActivity {
     private void runCalculations() {
         //run calculatuons on newDay - that way we can compare to previous day
 
-        //3 for loops that run 4 times - represents each hour
+        //3 for loops that run 4 times - represents each hour in 12 hour day
         int cash = 0;
         int pay2 = 0;
         pay = 0;
@@ -242,15 +231,9 @@ public class DailyReport extends AppCompatActivity {
         newDay.setEmployees(S1Employees);
         //Toast.makeText(getApplicationContext(),"Register Employees: size " + newDay.getEmployeesRegisters(), Toast.LENGTH_SHORT).show();
         for (int i = 0; i < 4; i++) {
-            //shift 1 calculations
-            //pull items off shelf
-
             //restock
             newDay = updateDay.restock(newDay, S1b);
-
-
             //pay employees
-
             pay2 = updateDay.payEmployees(newDay);
             pay += pay2;
             cash = newDay.getCash();
@@ -262,21 +245,14 @@ public class DailyReport extends AppCompatActivity {
         }
         soldS1 = (int) newDay.getRegUT();
         leftS1 = (newDay.getShift() / 4);
-
-        int a3fterBOH = newDay.getBOHStock();
-        int aft3erFOH = newDay.getFOHStock();
-
         newDay.setShift(0);
         newDay.setRegUT(0);
 
-
-//set the number of employees and departments based on the data bassed pn finalize
-//create 3 employee arrays so we can just set the employees in between shifts
+        //shift 2 calculations
         newDay.setEmployees(S2Employees);
         for (int i = 0; i < 4; i++) {
 
             newDay = updateDay.restock(newDay, S2b);
-            //shift 2 calculations
             pay2 = updateDay.payEmployees(newDay);
             pay += pay2;
             cash = newDay.getCash();
@@ -296,11 +272,12 @@ public class DailyReport extends AppCompatActivity {
         newDay.setShift(0);
         newDay.setRegUT(0);
 
+        //shift 3 calculations
         newDay.setEmployees(S3Employees);
         for (int i = 0; i < 4; i++) {
 
             newDay = updateDay.restock(newDay, S3b);
-            //shift 3 calculations
+
             pay2 = updateDay.payEmployees(newDay);
             pay += pay2;
             cash = newDay.getCash();
@@ -326,11 +303,8 @@ public class DailyReport extends AppCompatActivity {
         newDay = updateDay.expireInventory(newDay);
         afterBOH = newDay.getBOHStock();
         afterFOH = newDay.getFOHStock();
-
         expiredTotal = initialBOH + initialFOH - afterBOH - afterFOH;
         netChange = newDay.getCash() - day.getCash();
-
-        //Toast.makeText(getApplicationContext(), "Register Utilization" + newDay.getShift()   , Toast.LENGTH_SHORT).show();
 
     }
 

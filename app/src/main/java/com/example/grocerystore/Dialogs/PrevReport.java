@@ -38,10 +38,7 @@ public class PrevReport extends Activity {
 
 
         title = findViewById(R.id.textView36);
-
-
         Bundle b = this.getIntent().getExtras();
-
         newDay = b.getParcelable("DayObj");
         prevVals = b.getFloatArray("prev");
 
@@ -61,8 +58,6 @@ public class PrevReport extends Activity {
     }
 
     private void setupView() {
-
-
         btn1 = findViewById(R.id.tvDP1);
         btn2 = findViewById(R.id.tvDP2);
         btn3 = findViewById(R.id.tvDP3);
@@ -74,7 +69,6 @@ public class PrevReport extends Activity {
         btn9 = findViewById(R.id.tvDP9);
         btn10 = findViewById(R.id.tvDP10);
         btn11 = findViewById(R.id.tvDP11);
-
 
     }
 

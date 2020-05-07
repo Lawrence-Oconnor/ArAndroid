@@ -27,7 +27,6 @@
         <activity
             android:name=".Dialogs.referencePopup"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
-        <activity android:name=".Activities.EmployeeTesting" />
         <activity
             android:name=".Activities.StartScreen"
             android:configChanges="orientation"

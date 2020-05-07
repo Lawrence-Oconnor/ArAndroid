@@ -74,7 +74,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     TextView cv5;
     TextView cv6;
 
-
     ArrayList<String> departments;
     ArrayList<String> foods;
     ArrayList<String> stockLabels;
@@ -89,7 +88,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
     ArrayList<Integer> costColors;
     ArrayList<Integer> statusColors;
 
-
     ArrayList<Employee> employees;
     ArrayList<FoodItem> items;
 
@@ -103,23 +101,19 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historical);
 
-
         setupView();
         initlalValues();
-
 
         quadrant1();
         quadrant2();
         quadrant3();
         quadrant4();
 
-
         Bundle b = this.getIntent().getExtras();
         if (b == null) ;
         {
             //this means we are on the first day
             initializeDay();
-
 
         }
 
@@ -133,8 +127,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         DecimalFormat formatter = new DecimalFormat("#,###.00");
 
         int cash = day.getCash();
-
-        //tv9.setText(getString(R.string.cashtx, cash));
         tvDay.setText("Day " + day.getStoreDay());
         tvCash.setText("" + formatter.format(day.getCash()));
 
@@ -149,9 +141,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         //fills array of with current stock of food
         initializeStock();
 
-
-        //TODO
-        //need to increment the day on refresh
         //initializing a day with the default values, starter array of employees, departments and foods
         day = new Store(1, 10000, 12, 12, 10, 0, 100, 250, departments, employees, items, 0);
 
@@ -443,9 +432,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
         foodColorsStack.add(ContextCompat.getColor(this, R.color.FOH));
         foodColorsStack.add(ContextCompat.getColor(this, R.color.BOH));
 
-
-        //  new int[] { R.color., R.color.red2, R.color.red3, R.color.red4 }
-
     }
 
 
@@ -455,7 +441,6 @@ public class Historical extends AppCompatActivity implements View.OnClickListene
 
         for (int i = 0; i < 10; i++) {
             employees.add(new Employee("Employee", i + 1, true, 45.0, 1, false, false));
-            //use String temp = new String(departments.get(1)); to access emplyee dept string
         }
     }
 

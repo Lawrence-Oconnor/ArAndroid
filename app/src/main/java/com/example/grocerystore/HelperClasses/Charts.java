@@ -26,45 +26,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Charts {
+//TODO
+//make charts take entries to set the data
 
-    private ArrayList <String> departments;
+    private ArrayList<String> departments;
 
     public Charts(PieChart pieChart) {
 
         departments = new ArrayList<>();
 
 
-        departments.add( "Registers");
+        departments.add("Registers");
         departments.add("Produce");
-        departments.add( "Dry Goods");
-        departments.add( "Frozen");
-        departments.add( "Dairy" );
+        departments.add("Dry Goods");
+        departments.add("Frozen");
+        departments.add("Dairy");
     }
 
 
-
-
-
-
-    public static PieChart pieChart(PieChart pieChart1, ArrayList<String> labels, ArrayList<Integer> colors)
-    {
+    public static PieChart pieChart(PieChart pieChart1, ArrayList<String> labels, ArrayList<Integer> colors) {
 
         pieChart1.setUsePercentValues(true);
         pieChart1.getDescription().setEnabled(false);
-        pieChart1.setExtraOffsets(0,0,0,0);
+        pieChart1.setExtraOffsets(0, 0, 0, 0);
         pieChart1.setDragDecelerationFrictionCoef(0.95f);
         pieChart1.setDrawHoleEnabled(false);
         // pieChart1.setHoleColor(Color.WHITE);
         // pieChart1.setTransparentCircleRadius(61f);
 
 
-
-
         ArrayList<PieEntry> values = new ArrayList<>();
 
 //TODO take values from excel once balances
-        for (String temp:labels ) {
-            values.add(new PieEntry(60f,temp));
+        for (String temp : labels) {
+            values.add(new PieEntry(60f, temp));
 
         }
 
@@ -90,16 +85,15 @@ public class Charts {
         pieChart1.setData(data);
         pieChart1.setDrawSliceText(false);
 
-        pieChart1.spin( 1400,0,-90f, Easing.EaseInOutQuad);
+        pieChart1.spin(1400, 0, -90f, Easing.EaseInOutQuad);
 
         return pieChart1;
 
     }
 
 
-    public static LineChart lineChart(LineChart lineChart)
-    {
-        ArrayList <String> foods ;
+    public static LineChart lineChart(LineChart lineChart) {
+        ArrayList<String> foods;
         foods = new ArrayList<>();
         foods.add("Apples");
         foods.add("Bananas");
@@ -130,11 +124,10 @@ public class Charts {
         xAxis.setValueFormatter(formatter);
 
 
-
 //data from food types
 
 
-        List<ILineDataSet>datasets = new ArrayList<ILineDataSet>();
+        List<ILineDataSet> datasets = new ArrayList<ILineDataSet>();
         datasets.add(dataset1);
 
         LineData data = new LineData(datasets);
@@ -146,9 +139,7 @@ public class Charts {
 
     }
 
-    public static BarChart barChart(BarChart barChart, ArrayList<String> titles, ArrayList<Integer> color, ArrayList<BarEntry> entries)
-    {
-
+    public static BarChart barChart(BarChart barChart, ArrayList<String> titles, ArrayList<Integer> color, ArrayList<BarEntry> entries) {
 
 
         BarDataSet barDataSet = new BarDataSet(entries, "");
@@ -158,7 +149,6 @@ public class Charts {
         barDataSet.setColors(color);
         // barDataSet2.setColor(Color.RED);
         // barDataSet3.setColor(Color.YELLOW);
-
 
 
         barDataSet.setBarBorderWidth(0.1f);
@@ -189,11 +179,7 @@ public class Charts {
     }
 
 
-
-
-    public static HorizontalBarChart barChartH(HorizontalBarChart barChart, ArrayList<String> shifts, ArrayList<Integer> color, ArrayList<BarEntry> entries)
-    {
-
+    public static HorizontalBarChart barChartH(HorizontalBarChart barChart, ArrayList<String> shifts, ArrayList<Integer> color, ArrayList<BarEntry> entries) {
 
 
         BarDataSet barDataSet = new BarDataSet(entries, "Data1");
@@ -203,7 +189,6 @@ public class Charts {
         barDataSet.setColors(color);
         // barDataSet2.setColor(Color.RED);
         // barDataSet3.setColor(Color.YELLOW);
-
 
 
         barDataSet.setBarBorderWidth(0.1f);
@@ -231,14 +216,14 @@ public class Charts {
     }
 
 
-    private static ArrayList getData(){
-    ArrayList<BarEntry> entries = new ArrayList<>();
-    entries.add(new BarEntry(0f, 30f));
-    entries.add(new BarEntry(1f, 80f));
-    entries.add(new BarEntry(2f, 60f));
-    entries.add(new BarEntry(3f, 50f));
-    entries.add(new BarEntry(4f, 70f));
-    entries.add(new BarEntry(5f, 60f));
-    return entries;
-}
+    private static ArrayList getData() {
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(0f, 30f));
+        entries.add(new BarEntry(1f, 80f));
+        entries.add(new BarEntry(2f, 60f));
+        entries.add(new BarEntry(3f, 50f));
+        entries.add(new BarEntry(4f, 70f));
+        entries.add(new BarEntry(5f, 60f));
+        return entries;
+    }
 }

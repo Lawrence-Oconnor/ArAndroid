@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModel;
 import com.example.grocerystore.R;
 
 public class SampleDialog extends Fragment {
-    // TODO: Implement the ViewModel
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.sample_dialog_fragment, container, false);

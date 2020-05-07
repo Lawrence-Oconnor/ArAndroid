@@ -12,34 +12,8 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Register {
-    // private static HashSet BaseQueue;
 
-    //Our registers will take things off the shelves at
-    //(product in queue) * ( rand(0.0f, 1.0f) aka DequeueQuantity ) / RegisterRate
-
-
-    static Queue<FoodItem> BaseQueue;
-    // Each ArrayList represents a customer
-    static Queue<ArrayList> Reg1Queue;
-    static Queue<ArrayList> Reg2Queue;
-    static Queue<ArrayList> Reg3Queue;
     static Store newDay;
-
-    static int total_food_sold_per_hour;
-    static float total_money_made_per_hour;
-    static int RegisterRate;
-    static int itemsAtCheckout;
-    int register1;
-    int register2;
-    int register3;
-
-    float DequeueQuantity;
-
-    int PercentageOfItemsTakenFromQueue;
-    static int checkoutsPossible = 0;
-    static int checkoutsPerformed = 0;
-    public static float registerUtilization;
-
     static ArrayList<FoodItem> foods;
     static ArrayList<FoodItem> reducedFoods;
     static ArrayList<FoodItem> checkoutFoods;
@@ -77,9 +51,6 @@ public class Register {
 
         if (day.getEmployeesRegisters() == 0)
             return day;
-
-        int afterjBO2H = newDay.getBOHStock();
-        int afteprFO2H = newDay.getFOHStock();
 
         for (int i = 0; i < 3; i++) {
             int b = 0;
@@ -192,8 +163,6 @@ public class Register {
             returned += checkoutFoods.get(b).getStockFOH();
             b++;
         }
-
-        //  loop through foods, add foods from checkout
 
 
     }

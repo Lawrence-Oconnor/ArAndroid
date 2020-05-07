@@ -39,20 +39,6 @@ import java.util.Timer;
 
 public class Realtime extends AppCompatActivity implements View.OnClickListener {
 
-//TODO
-    /*
-     *Game Timer - implement the timer in a thread then do specifics later
-     *Refresh method to manage charts
-     * create update method to update the charts on refresh
-     *hook the charts to refresh timer
-     * \
-     * All of this code should be moved to a severate activity -
-     * main activity will keep track of day in a loop - however many iterations
-     * and launch the realtime activity with the day number to get the correct data
-     * make a blank day in the main activity - in the realtime activity return the day obj
-     *
-     * */
-
     Thread sample;
 
 
