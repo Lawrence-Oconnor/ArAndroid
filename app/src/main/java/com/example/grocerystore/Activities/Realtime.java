@@ -72,21 +72,21 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realtime);
-        setupView();
+       // setupView();
 
         //Testing initialization of multiple chart types
-        pieChartTest();
-        barChartTest();
-        lineChartTest();
+//        pieChartTest();
+       // barChartTest();
+       // lineChartTest();
 
 
-        initializeDay();
+      //  initializeDay();
 
         //for later use/ set up default charts
-        initializeCharts();
+     //   initializeCharts();
 
         //update chart method updates on hour of game time
-        refreshCharts();
+     //   refreshCharts();
 
     }
 
@@ -204,7 +204,7 @@ public class Realtime extends AppCompatActivity implements View.OnClickListener 
 
     private void lineChartTest() {
 
-        lineChart = (LineChart) findViewById(R.id.Q2LineChart);
+       // lineChart = (LineChart) findViewById(R.id.Q2LineChart);
 
         List<Entry> entries1 = new ArrayList<>();
         entries1.add(new Entry(0f, 34f));

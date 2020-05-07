@@ -121,7 +121,7 @@
                 android:id="@+id/cvA"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#E91E63"
+                app:cardBackgroundColor="@color/chartCardBackground"
                 app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -141,42 +141,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:cardBackgroundColor="#44DBB6"
-                        app:layout_constraintHeight_percent="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintWidth_percent="0.5">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <com.github.mikephil.charting.charts.PieChart
-                                android:id="@+id/chart1Pie"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHeight_percent="1.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintWidth_percent="1.0" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginTop="24dp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvQuad1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#1EE968"
+                app:cardBackgroundColor="@color/chartCardBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintTop_toTopOf="parent"
@@ -196,26 +168,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="286dp"
-                        android:layout_height="201dp"
-                        app:cardBackgroundColor="#E3C3EB"
-                        app:layout_constraintHeight_percent="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintWidth_percent="0.5">
-
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginTop="24dp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvQuad3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#F5DE9C"
+                app:cardBackgroundColor="@color/chartCardBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -240,7 +200,7 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        app:cardBackgroundColor="#E3C3EB"
+                        app:cardBackgroundColor="@color/chartCardBackground"
                         app:layout_constraintHeight_percent="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -248,30 +208,7 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <com.github.mikephil.charting.charts.LineChart
-                                android:id="@+id/Q2LineChart"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:foregroundGravity="right"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHeight_percent=".5"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintWidth_percent=".5">
-
-                            </com.github.mikephil.charting.charts.LineChart>
-
-                            <com.github.mikephil.charting.charts.BarChart
-                                android:id="@+id/bcQ4"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                app:layout_constraintHeight_percent=".5"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintWidth_percent=".5" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_height="match_parent" />
 
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -282,7 +219,7 @@
                 android:id="@+id/cvQuad4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#1E80E9"
+                app:cardBackgroundColor="@color/chartCardBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent="0.5"
@@ -303,16 +240,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="24dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:layout_constraintHeight_percent=".5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintWidth_percent=".5" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginTop="24dp" />
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
