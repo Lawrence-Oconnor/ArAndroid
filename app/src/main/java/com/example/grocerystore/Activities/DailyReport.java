@@ -5,10 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.grocerystore.HelperClasses.GlobalClass;
 import com.example.grocerystore.HelperClasses.Register;
 import com.example.grocerystore.HelperClasses.updateDay;
 import com.example.grocerystore.Models.Employee;
@@ -18,6 +17,7 @@ import com.example.grocerystore.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DailyReport extends AppCompatActivity {
 
@@ -59,6 +59,10 @@ public class DailyReport extends AppCompatActivity {
     ArrayList<Employee> S2Employees;
     ArrayList<Employee> S3Employees;
 
+    ArrayList<String> logFile;
+    GlobalClass log;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +92,8 @@ public class DailyReport extends AppCompatActivity {
 
         initializeEmployees();
         end = false;
+
+        log =  (GlobalClass) getApplicationContext();
 
         setupView();
         runCalculations();
@@ -180,6 +186,7 @@ public class DailyReport extends AppCompatActivity {
         btn7.setText(expiredTotal + " foods expired");
         btn8.setText("$ " + formatter.format(pay) + " Spent on Employee Salaries");
 
+
         prevVals[0] = solttot;
         prevVals[1] = soldS1;
         prevVals[2] = soldS2;
@@ -190,6 +197,27 @@ public class DailyReport extends AppCompatActivity {
         prevVals[7] = expiredTotal;
         prevVals[8] = netChange;
         prevVals[9] = pay;
+
+
+        //Adding End of day values to global logfile
+
+       logFile = log.getGlobalArrayList();
+       if(logFile == null)
+           logFile = new ArrayList<>();
+
+
+        logFile.add("Day " + newDay.getStoreDay());
+        logFile.add("You have $" + formatter.format(newDay.getCash()) + " Net Change: " + formatter.format(netChange));
+        logFile.add("Total Front of House Stock: " + newDay.getFOHStock());
+        logFile.add("Total Back of House Stock: " + newDay.getBOHStock());
+        logFile.add("You sold " + solttot + " items" + "Shift 1:" + soldS1 + " Shift 2: " + soldS2 + " Shift 3: " + soldS3);
+        logFile.add("Items left at register Shift 1:" + leftS1 + " Shift 2: " + leftS2 + " Shift 3: " + leftS3);
+        logFile.add(expiredTotal + " foods expired");
+        logFile.add("$ " + formatter.format(pay) + " Spent on Employee Salaries");
+
+
+        log.setGlobalArrayList(logFile);
+
     }
 
     private void setupView() {

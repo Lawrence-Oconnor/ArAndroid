@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.grocerystore.Activities.DailyReport;
 import com.example.grocerystore.Activities.Historical;
+import com.example.grocerystore.HelperClasses.GlobalClass;
 import com.example.grocerystore.Models.Employee;
 import com.example.grocerystore.Models.FoodItem;
 import com.example.grocerystore.Models.Store;
@@ -139,9 +140,11 @@ public class UserInputs extends Activity implements View.OnClickListener {
 
 
     Button btnFinal;
-    ArrayList departments, employees, items;
     Store day;
-    int minteger1 = 0;
+
+
+    ArrayList<String> logFile;
+    GlobalClass log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,6 +182,7 @@ public class UserInputs extends Activity implements View.OnClickListener {
                 b.putFloatArray("S3", S3);
                 b.putFloatArray("quant", quantities);
                 b.putFloatArray("ship", shipping);
+                setLogFile();
                 i.putExtras(b);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.setClass(getApplicationContext(), DailyReport.class);
@@ -187,7 +191,32 @@ public class UserInputs extends Activity implements View.OnClickListener {
             }
         });
     }
+    private void setLogFile() {
+        log =  (GlobalClass) getApplicationContext();
 
+        logFile = log.getGlobalArrayList();
+        if(logFile == null)
+            logFile = new ArrayList<>();
+
+
+        logFile.add("Day " + day.getStoreDay() + " User Inputs ");
+        logFile.add(" Shift 1 Employees:" + "Produce: " + (int)S1[1] + " Dairy: " + (int)S1[2] + " Dry: " + (int)S1[3] + " Frozen: " + (int)S1[4] + " Registers: " + (int)S1[5]);
+        logFile.add(" Shift 2 Employees:" + "Produce: " + (int)S2[1] + " Dairy: " + (int)S2[2] + " Dry: " + (int)S2[3] + " Frozen: " + (int)S2[4] + " Registers: " + (int)S2[5]);
+        logFile.add(" Shift 3 Employees:" + "Produce: " + (int)S3[1] + " Dairy: " + (int)S3[2] + " Dry: " + (int)S3[3] + " Frozen: " + (int)S3[4] + " Registers: " + (int)S3[5]);
+
+        logFile.add("Order Batches ");
+        logFile.add("Apples: "  + (int)quantities[0] + "Expedited:" + (int)shipping[0]);
+        logFile.add("Bananas: "  + (int)quantities[1] + "Expedited:" + (int)shipping[1]);
+        logFile.add("Eggs: "  + (int)quantities[2] + "Expedited:" +(int) shipping[2]);
+        logFile.add("Milk: "  + (int)quantities[3] + "Expedited:" + (int)shipping[3]);
+        logFile.add("Cereal: "  + (int)quantities[4] + "Expedited:" + (int)shipping[4]);
+        logFile.add("Cookies: "  + (int)quantities[5] + "Expedited:" + (int)shipping[5]);
+        logFile.add("Pizza: "  + (int)quantities[6] + "Expedited:" + (int)shipping[6]);
+        logFile.add("Dessert: "  + (int)quantities[7] + "Expedited:" +(int) shipping[7]);
+
+        log.setGlobalArrayList(logFile);
+
+    }
     private void setArrays() {
         S1[0] = s1Total;
         S1[1] = S1Produce;

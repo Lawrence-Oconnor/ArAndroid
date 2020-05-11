@@ -8,11 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".HelperClasses.GlobalClass">
         <activity android:name=".Dialogs.PrevReport"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity android:name=".Activities.DailyReport" />
         <activity android:name=".Dialogs.ManageRegisters" />
+
         <activity android:name=".Dialogs.CallIn" />
         <activity android:name=".Dialogs.Release" />
         <activity android:name=".Dialogs.Restock" />
